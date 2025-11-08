@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy for Guardian Tower Defense mobile game - Политика конфиденциальности">
+    <title>Privacy Policy - Guardian Tower Defense</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 8px 8px 0 0;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .language-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .lang-label {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-right: 10px;
+        }
+        
+        .language-selector button {
+            background: #ecf0f1;
+            border: 2px solid transparent;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: #2c3e50;
+        }
+        
+        .language-selector button:hover {
+            background: #d5dbdb;
+            transform: translateY(-2px);
+        }
+        
+        .language-selector button.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #5568d3;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .effective-date {
+            color: #7f8c8d;
+            font-size: 0.95em;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        h2 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        a {
+            color: #667eea;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: center;
+            border: 2px solid #667eea;
+        }
+        
+        .contact-box strong {
+            color: #667eea;
+            font-size: 1.2em;
+        }
+        
+        .footer-note {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header, .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            h2 {
+                font-size: 1.2em;
+            }
+            
+            .language-selector button {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+            
+            .lang-label {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="language-selector">
+            <span class="lang-label">🌐 Language:</span>
+            <button onclick="switchLang('en')" data-lang="en">English</button>
+            <button onclick="switchLang('es')" data-lang="es">Español</button>
+            <button onclick="switchLang('pt')" data-lang="pt">Português</button>
+            <button onclick="switchLang('ru')" data-lang="ru">Русский</button>
+            <button onclick="switchLang('zh')" data-lang="zh">简体中文</button>
+            <button onclick="switchLang('de')" data-lang="de">Deutsch</button>
+            <button onclick="switchLang('fr')" data-lang="fr">Français</button>
+            <button onclick="switchLang('ja')" data-lang="ja">日本語</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- ENGLISH -->
+        <div id="en" class="content">
+            <h1>Guardian Tower Defense - Privacy Policy</h1>
+            <p class="effective-date">Effective Date: November 8, 2025</p>
+
+            <h2>1. INFORMATION WE COLLECT</h2>
+            <p>We collect the following information:</p>
+            <ul>
+                <li>Advertising ID (a unique identifier for advertising purposes)</li>
+                <li>IP address to determine your region and show relevant advertisements</li>
+                <li>Game progress and achievement data</li>
+                <li>Technical device information (model, operating system, version)</li>
+            </ul>
+
+            <h2>2. USE OF INFORMATION</h2>
+            <p>The collected information is used for:</p>
+            <ul>
+                <li>Displaying personalized advertisements</li>
+                <li>Improving your gaming experience</li>
+                <li>Analyzing and optimizing the game</li>
+                <li>Complying with legal requirements</li>
+            </ul>
+
+            <h2>3. ADVERTISING AND PARTNERS</h2>
+            <p>To monetize the game, we use the Appodeal SDK, which may collect and process data to display advertisements.</p>
+            <p>Appodeal Privacy Policy: <a href="https://www.appodeal.com/privacy-policy" target="_blank">https://www.appodeal.com/privacy-policy</a></p>
+            
+            <p>Our advertising partners include:</p>
+            <ul>
+                <li>AdMob (Google): <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></li>
+                <li>AppLovin: <a href="https://www.applovin.com/privacy/" target="_blank">https://www.applovin.com/privacy/</a></li>
+                <li>Unity Ads: <a href="https://unity3d.com/legal/privacy-policy" target="_blank">https://unity3d.com/legal/privacy-policy</a></li>
+                <li>Vungle: <a href="https://vungle.com/privacy/" target="_blank">https://vungle.com/privacy/</a></li>
+                <li>MyTarget: <a href="https://legal.my.com/us/mytarget/privacy/" target="_blank">https://legal.my.com/us/mytarget/privacy/</a></li>
+                <li>Yandex: <a href="https://yandex.com/legal/confidential/" target="_blank">https://yandex.com/legal/confidential/</a></li>
+            </ul>
+
+            <h2>4. DATA PROTECTION</h2>
+            <p>We implement technical and organizational measures to protect your data from unauthorized access, disclosure, alteration, or destruction.</p>
+
+            <h2>5. YOUR RIGHTS (GDPR/CCPA)</h2>
+            <p>You have the right to:</p>
+            <ul>
+                <li>Request access to your personal data</li>
+                <li>Request deletion of your personal data</li>
+                <li>Opt-out of personalized advertising</li>
+                <li>Withdraw consent for data processing</li>
+            </ul>
+            <p>To exercise these rights, please contact us at the email address provided below.</p>
+
+            <h2>6. CHILDREN'S PRIVACY</h2>
+            <p>This game is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately.</p>
+
+            <h2>7. CHANGES TO THIS POLICY</h2>
+            <p>We may update this Privacy Policy from time to time. Any changes will be communicated within the game. Your continued use of the game after changes are posted constitutes your acceptance of the updated policy.</p>
+
+            <h2>8. CONTACT US</h2>
+            <div class="contact-box">
+                <p>For privacy-related inquiries, please contact us at:</p>
+                <p><strong>arni@cococg.com</strong></p>
+            </div>
+
+            <p class="footer-note">
+                By using Guardian Tower Defense, you acknowledge that you have read and understood this Privacy Policy and agree to the collection and processing of your data as described herein.
+            </p>
+        </div>
+
+        <!-- ESPAÑOL -->
+        <div id="es" class="content">
+            <h1>Guardian Tower Defense - Política de Privacidad</h1>
+            <p class="effective-date">Fecha de entrada en vigor: 8 de noviembre de 2025</p>
+
+            <h2>1. INFORMACIÓN QUE RECOPILAMOS</h2>
+            <p>Recopilamos la siguiente información:</p>
+            <ul>
+                <li>ID de publicidad (un identificador único para fines publicitarios)</li>
+                <li>Dirección IP para determinar su región y mostrar anuncios relevantes</li>
+                <li>Datos de progreso del juego y logros</li>
+                <li>Información técnica del dispositivo (modelo, sistema operativo, versión)</li>
+            </ul>
+
+            <h2>2. USO DE LA INFORMACIÓN</h2>
+            <p>La información recopilada se utiliza para:</p>
+            <ul>
+                <li>Mostrar anuncios personalizados</li>
+                <li>Mejorar su experiencia de juego</li>
+                <li>Analizar y optimizar el juego</li>
+                <li>Cumplir con los requisitos legales</li>
+            </ul>
+
+            <h2>3. PUBLICIDAD Y SOCIOS</h2>
+            <p>Para monetizar el juego, utilizamos el SDK de Appodeal, que puede recopilar y procesar datos para mostrar anuncios.</p>
+            <p>Política de privacidad de Appodeal: <a href="https://www.appodeal.com/privacy-policy" target="_blank">https://www.appodeal.com/privacy-policy</a></p>
+            
+            <p>Nuestros socios publicitarios incluyen:</p>
+            <ul>
+                <li>AdMob (Google): <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></li>
+                <li>AppLovin: <a href="https://www.applovin.com/privacy/" target="_blank">https://www.applovin.com/privacy/</a></li>
+                <li>Unity Ads: <a href="https://unity3d.com/legal/privacy-policy" target="_blank">https://unity3d.com/legal/privacy-policy</a></li>
+                <li>Vungle: <a href="https://vungle.com/privacy/" target="_blank">https://vungle.com/privacy/</a></li>
+                <li>MyTarget: <a href="https://legal.my.com/us/mytarget/privacy/" target="_blank">https://legal.my.com/us/mytarget/privacy/</a></li>
+                <li>Yandex: <a href="https://yandex.com/legal/confidential/" target="_blank">https://yandex.com/legal/confidential/</a></li>
+            </ul>
+
+            <h2>4. PROTECCIÓN DE DATOS</h2>
+            <p>Implementamos medidas técnicas y organizativas para proteger sus datos de acceso no autorizado, divulgación, alteración o destrucción.</p>
+
+            <h2>5. SUS DERECHOS (GDPR/CCPA)</h2>
+            <p>Usted tiene derecho a:</p>
+            <ul>
+                <li>Solicitar acceso a sus datos personales</li>
+                <li>Solicitar la eliminación de sus datos personales</li>
+                <li>Optar por no recibir publicidad personalizada</li>
+                <li>Retirar el consentimiento para el procesamiento de datos</li>
+            </ul>
+            <p>Para ejercer estos derechos, contáctenos a la dirección de correo electrónico que se proporciona a continuación.</p>
+
+            <h2>6. PRIVACIDAD DE LOS NIÑOS</h2>
+            <p>Este juego no está destinado a niños menores de 13 años. No recopilamos intencionalmente información personal de niños menores de 13 años. Si usted es un padre o tutor y cree que su hijo nos ha proporcionado información personal, contáctenos de inmediato.</p>
+
+            <h2>7. CAMBIOS EN ESTA POLÍTICA</h2>
+            <p>Podemos actualizar esta Política de privacidad de vez en cuando. Cualquier cambio se comunicará dentro del juego. Su uso continuado del juego después de que se publiquen los cambios constituye su aceptación de la política actualizada.</p>
+
+            <h2>8. CONTÁCTENOS</h2>
+            <div class="contact-box">
+                <p>Para consultas relacionadas con la privacidad, contáctenos en:</p>
+                <p><strong>arni@cococg.com</strong></p>
+            </div>
+
+            <p class="footer-note">
+                Al usar Guardian Tower Defense, usted reconoce que ha leído y comprendido esta Política de Privacidad y acepta la recopilación y el procesamiento de sus datos como se describe aquí.
+            </p>
+        </div>
+
+        <!-- PORTUGUÊS -->
+        <div id="pt" class="content">
+            <h1>Guardian Tower Defense - Política de Privacidade</h1>
+            <p class="effective-date">Data de vigência: 8 de novembro de 2025</p>
+
+            <h2>1. INFORMAÇÕES QUE COLETAMOS</h2>
+            <p>Coletamos as seguintes informações:</p>
+            <ul>
+                <li>ID de publicidade (um identificador único para fins publicitários)</li>
+                <li>Endereço IP para determinar sua região e mostrar anúncios relevantes</li>
+                <li>Dados de progresso do jogo e conquistas</li>
+                <li>Informações técnicas do dispositivo (modelo, sistema operacional, versão)</li>
+            </ul>
+
+            <h2>2. USO DAS INFORMAÇÕES</h2>
+            <p>As informações coletadas são usadas para:</p>
+            <ul>
+                <li>Exibir anúncios personalizados</li>
+                <li>Melhorar sua experiência de jogo</li>
+                <li>Analisar e otimizar o jogo</li>
+                <li>Cumprir requisitos legais</li>
+            </ul>
+
+            <h2>3. PUBLICIDADE E PARCEIROS</h2>
+            <p>Para monetizar o jogo, usamos o SDK da Appodeal, que pode coletar e processar dados para exibir anúncios.</p>
+            <p>Política de Privacidade da Appodeal: <a href="https://www.appodeal.com/privacy-policy" target="_blank">https://www.appodeal.com/privacy-policy</a></p>
+            
+            <p>Nossos parceiros de publicidade incluem:</p>
+            <ul>
+                <li>AdMob (Google): <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></li>
+                <li>AppLovin: <a href="https://www.applovin.com/privacy/" target="_blank">https://www.applovin.com/privacy/</a></li>
+                <li>Unity Ads: <a href="https://unity3d.com/legal/privacy-policy" target="_blank">https://unity3d.com/legal/privacy-policy</a></li>
+                <li>Vungle: <a href="https://vungle.com/privacy/" target="_blank">https://vungle.com/privacy/</a></li>
+                <li>MyTarget: <a href="https://legal.my.com/us/mytarget/privacy/" target="_blank">https://legal.my.com/us/mytarget/privacy/</a></li>
+                <li>Yandex: <a href="https://yandex.com/legal/confidential/" target="_blank">https://yandex.com/legal/confidential/</a></li>
+            </ul>
+
+            <h2>4. PROTEÇÃO DE DADOS</h2>
+            <p>Implementamos medidas técnicas e organizacionais para proteger seus dados contra acesso não autorizado, divulgação, alteração ou destruição.</p>
+
+            <h2>5. SEUS DIREITOS (GDPR/LGPD)</h2>
+            <p>Você tem o direito de:</p>
+            <ul>
+                <li>Solicitar acesso aos seus dados pessoais</li>
+                <li>Solicitar a exclusão dos seus dados pessoais</li>
+                <li>Optar por não receber publicidade personalizada</li>
+                <li>Retirar o consentimento para processamento de dados</li>
+            </ul>
+            <p>Para exercer esses direitos, entre em contato conosco pelo endereço de e-mail fornecido abaixo.</p>
+
+            <h2>6. PRIVACIDADE DAS CRIANÇAS</h2>
+            <p>Este jogo não se destina a crianças menores de 13 anos. Não coletamos intencionalmente informações pessoais de crianças menores de 13 anos. Se você é pai ou responsável e acredita que seu filho nos forneceu informações pessoais, entre em contato conosco imediatamente.</p>
+
+            <h2>7. ALTERAÇÕES NESTA POLÍTICA</h2>
+            <p>Podemos atualizar esta Política de Privacidade de tempos em tempos. Quaisquer alterações serão comunicadas dentro do jogo. Seu uso continuado do jogo após a publicação das alterações constitui sua aceitação da política atualizada.</p>
+
+            <h2>8. ENTRE EM CONTATO</h2>
+            <div class="contact-box">
+                <p>Para consultas relacionadas à privacidade, entre em contato conosco em:</p>
+                <p><strong>arni@cococg.com</strong></p>
+            </div>
+
+            <p class="footer-note">
+                Ao usar Guardian Tower Defense, você reconhece que leu e entendeu esta Política de Privacidade e concorda com a coleta e o processamento de seus dados conforme descrito aqui.
+            </p>
+        </div>
+
+        <!-- РУССКИЙ -->
+        <div id="ru" class="content">
+            <h1>Guardian Tower Defense - Политика конфиденциальности</h1>
+            <p class="effective-date">Дата вступления в силу: 8 ноября 2025</p>
+
+            <h2>1. СБОР ИНФОРМАЦИИ</h2>
+            <p>Мы собираем следующую информацию:</p>
+            <ul>
+                <li>Рекламный идентификатор устройства (Advertising ID)</li>
+                <li>IP-адрес для определения региона и показа релевантной рекламы</li>
+                <li>Данные об игровом прогрессе и достижениях</li>
+                <li>Техническая информация об устройстве (модель, ОС, версия)</li>
+            </ul>
+
+            <h2>2. ИСПОЛЬЗОВАНИЕ ИНФОРМАЦИИ</h2>
+            <p>Собранная информация используется для:</p>
+            <ul>
+                <li>Показа персонализированной рекламы</li>
+                <li>Улучшения игрового опыта</li>
+                <li>Анализа и оптимизации игры</li>
+                <li>Соблюдения законодательных требований</li>
+            </ul>
+
+            <h2>3. РЕКЛАМА И ПАРТНЕРЫ</h2>
+            <p>Для монетизации игры мы используем Appodeal SDK, который может собирать и обрабатывать данные для показа рекламы.</p>
+            <p>Политика конфиденциальности Appodeal: <a href="https://www.appodeal.com/privacy-policy" target="_blank">https://www.appodeal.com/privacy-policy</a></p>
+            
+            <p>Наши рекламные партнеры включают:</p>
+            <ul>
+                <li>AdMob (Google): <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></li>
+                <li>AppLovin: <a href="https://www.applovin.com/privacy/" target="_blank">https://www.applovin.com/privacy/</a></li>
+                <li>Unity Ads: <a href="https://unity3d.com/legal/privacy-policy" target="_blank">https://unity3d.com/legal/privacy-policy</a></li>
+                <li>Vungle: <a href="https://vungle.com/privacy/" target="_blank">https://vungle.com/privacy/</a></li>
+                <li>MyTarget: <a href="https://legal.my.com/us/mytarget/privacy/" target="_blank">https://legal.my.com/us/mytarget/privacy/</a></li>
+                <li>Yandex: <a href="https://yandex.com/legal/confidential/" target="_blank">https://yandex.com/legal/confidential/</a></li>
+            </ul>
+
+            <h2>4. ЗАЩИТА ДАННЫХ</h2>
+            <p>Мы применяем технические и организационные меры для защиты ваших данных от несанкционированного доступа, раскрытия, изменения или уничтожения.</p>
+
+            <h2>5. ВАШИ ПРАВА (GDPR/CCPA)</h2>
+            <p>Вы имеете право:</p>
+            <ul>
+                <li>Запросить доступ к вашим персональным данным</li>
+                <li>Запросить удаление ваших персональных данных</li>
+                <li>Отказаться от персонализированной рекламы</li>
+                <li>Отозвать согласие на обработку данных</li>
+            </ul>
+            <p>Для осуществления этих прав свяжитесь с нами по адресу электронной почты, указанному ниже.</p>
+
+            <h2>6. ДЕТСКАЯ БЕЗОПАСНОСТЬ</h2>
+            <p>Игра не предназначена для детей младше 13 лет. Мы не собираем намеренно персональные данные детей младше 13 лет. Если вы являетесь родителем или опекуном и считаете, что ваш ребенок предоставил нам персональные данные, немедленно свяжитесь с нами.</p>
+
+            <h2>7. ИЗМЕНЕНИЯ ПОЛИТИКИ</h2>
+            <p>Мы можем обновлять эту Политику конфиденциальности время от времени. Об изменениях будет сообщено в игре. Продолжение использования игры после публикации изменений означает ваше согласие с обновленной политикой.</p>
+
+            <h2>8. КОНТАКТЫ</h2>
+            <div class="contact-box">
+                <p>По вопросам конфиденциальности свяжитесь с нами:</p>
+                <p><strong>arni@cococg.com</strong></p>
+            </div>
+
+            <p class="footer-note">
+                Используя Guardian Tower Defense, вы подтверждаете, что прочитали и поняли данную Политику конфиденциальности и соглашаетесь на сбор и обработку ваших данных, как описано здесь.
+            </p>
+        </div>
+
+        <!-- 简体中文 (CHINESE) -->
+        <div id="zh" class="content">
+            <h1>Guardian Tower Defense - 隐私政策</h1>
+            <p class="effective-date">生效日期：2025年11月8日</p>
+
+            <h2>1. 我们收集的信息</h2>
+            <p>我们收集以下信息：</p>
+            <ul>
+                <li>广告标识符（用于广告目的的唯一标识符）</li>
+                <li>IP地址，用于确定您的地区并显示相关广告</li>
+                <li>游戏进度和成就数据</li>
+                <li>设备技术信息（型号、操作系统、版本）</li>
+            </ul>
+
+            <h2>2. 信息使用</h2>
+            <p>收集的信息用于：</p>
+            <ul>
+                <li>显示个性化广告</li>
+                <li>改善您的游戏体验</li>
+                <li>分析和优化游戏</li>
+                <li>遵守法律要求</li>
+            </ul>
+
+            <h2>3. 广告和合作伙伴</h2>
+            <p>为了实现游戏盈利，我们使用Appodeal SDK，它可能收集和处理数据以显示广告。</p>
+            <p>Appodeal隐私政策：<a href="https://www.appodeal.com/privacy-policy" target="_blank">https://www.appodeal.com/privacy-policy</a></p>
+            
+            <p>我们的广告合作伙伴包括：</p>
+            <ul>
+                <li>AdMob (Google)：<a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></li>
+                <li>AppLovin：<a href="https://www.applovin.com/privacy/" target="_blank">https://www.applovin.com/privacy/</a></li>
+                <li>Unity Ads：<a href="https://unity3d.com/legal/privacy-policy" target="_blank">https://unity3d.com/legal/privacy-policy</a></li>
+                <li>Vungle：<a href="https://vungle.com/privacy/" target="_blank">https://vungle.com/privacy/</a></li>
+                <li>MyTarget：<a href="https://legal.my.com/us/mytarget/privacy/" target="_blank">https://legal.my.com/us/mytarget/privacy/</a></li>
+                <li>Yandex：<a href="https://yandex.com/legal/confidential/" target="_blank">https://yandex.com/legal/confidential/</a></li>
+            </ul>
+
+            <h2>4. 数据保护</h2>
+            <p>我们采取技术和组织措施，保护您的数据免受未经授权的访问、披露、更改或破坏。</p>
+
+            <h2>5. 您的权利（GDPR/CCPA）</h2>
+            <p>您有权：</p>
+            <ul>
+                <li>请求访问您的个人数据</li>
+                <li>请求删除您的个人数据</li>
+                <li>选择不接收个性化广告</li>
+                <li>撤回数据处理同意</li>
+            </ul>
+            <p>要行使这些权利，请通过下面提供的电子邮件地址联系我们。</p>
+
+            <h2>6. 儿童隐私</h2>
+            <p>本游戏不适合13岁以下儿童。我们不会故意收集13岁以下儿童的个人信息。如果您是家长或监护人，并认为您的孩子向我们提供了个人信息，请立即联系我们。</p>
+
+            <h2>7. 政策变更</h2>
+            <p>我们可能会不时更新本隐私政策。任何更改将在游戏内通知。在发布更改后继续使用游戏即表示您接受更新的政策。</p>
+
+            <h2>8. 联系我们</h2>
+            <div class="contact-box">
+                <p>如有隐私相关咨询，请联系我们：</p>
+                <p><strong>arni@cococg.com</strong></p>
+            </div>
+
+            <p class="footer-note">
+                使用Guardian Tower Defense即表示您承认已阅读并理解本隐私政策，并同意按此处所述收集和处理您的数据。
+            </p>
+        </div>
+
+        <!-- DEUTSCH -->
+        <div id="de" class="content">
+            <h1>Guardian Tower Defense - Datenschutzrichtlinie</h1>
+            <p class="effective-date">Gültig ab: 8. November 2025</p>
+
+            <h2>1. ERFASSTE INFORMATIONEN</h2>
+            <p>Wir erfassen folgende Informationen:</p>
+            <ul>
+                <li>Werbe-ID (eine eindeutige Kennung für Werbezwecke)</li>
+                <li>IP-Adresse zur Bestimmung Ihrer Region und Anzeige relevanter Werbung</li>
+                <li>Spielfortschritt und Erfolge</li>
+                <li>Technische Geräteinformationen (Modell, Betriebssystem, Version)</li>
+            </ul>
+
+            <h2>2. VERWENDUNG DER INFORMATIONEN</h2>
+            <p>Die erfassten Informationen werden verwendet für:</p>
+            <ul>
+                <li>Anzeige personalisierter Werbung</li>
+                <li>Verbesserung Ihres Spielerlebnisses</li>
+                <li>Analyse und Optimierung des Spiels</li>
+                <li>Einhaltung gesetzlicher Anforderungen</li>
+            </ul>
+
+            <h2>3. WERBUNG UND PARTNER</h2>
+            <p>Zur Monetarisierung des Spiels verwenden wir das Appodeal SDK, das Daten zur Anzeige von Werbung erfassen und verarbeiten kann.</p>
+            <p>Appodeal Datenschutzrichtlinie: <a href="https://www.appodeal.com/privacy-policy" target="_blank">https://www.appodeal.com/privacy-policy</a></p>
+            
+            <p>Zu unseren Werbepartnern gehören:</p>
+            <ul>
+                <li>AdMob (Google): <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></li>
+                <li>AppLovin: <a href="https://www.applovin.com/privacy/" target="_blank">https://www.applovin.com/privacy/</a></li>
+                <li>Unity Ads: <a href="https://unity3d.com/legal/privacy-policy" target="_blank">https://unity3d.com/legal/privacy-policy</a></li>
+                <li>Vungle: <a href="https://vungle.com/privacy/" target="_blank">https://vungle.com/privacy/</a></li>
+                <li>MyTarget: <a href="https://legal.my.com/us/mytarget/privacy/" target="_blank">https://legal.my.com/us/mytarget/privacy/</a></li>
+                <li>Yandex: <a href="https://yandex.com/legal/confidential/" target="_blank">https://yandex.com/legal/confidential/</a></li>
+            </ul>
+
+            <h2>4. DATENSCHUTZ</h2>
+            <p>Wir ergreifen technische und organisatorische Maßnahmen zum Schutz Ihrer Daten vor unbefugtem Zugriff, Offenlegung, Änderung oder Zerstörung.</p>
+
+            <h2>5. IHRE RECHTE (DSGVO/CCPA)</h2>
+            <p>Sie haben das Recht:</p>
+            <ul>
+                <li>Zugriff auf Ihre personenbezogenen Daten zu beantragen</li>
+                <li>Löschung Ihrer personenbezogenen Daten zu beantragen</li>
+                <li>Personalisierte Werbung abzulehnen</li>
+                <li>Ihre Einwilligung zur Datenverarbeitung zu widerrufen</li>
+            </ul>
+            <p>Um diese Rechte auszuüben, kontaktieren Sie uns bitte unter der unten angegebenen E-Mail-Adresse.</p>
+
+            <h2>6. DATENSCHUTZ FÜR KINDER</h2>
+            <p>Dieses Spiel ist nicht für Kinder unter 13 Jahren bestimmt. Wir erfassen wissentlich keine personenbezogenen Daten von Kindern unter 13 Jahren. Wenn Sie Elternteil oder Erziehungsberechtigter sind und glauben, dass Ihr Kind uns personenbezogene Daten zur Verfügung gestellt hat, kontaktieren Sie uns bitte umgehend.</p>
+
+            <h2>7. ÄNDERUNGEN DIESER RICHTLINIE</h2>
+            <p>Wir können diese Datenschutzrichtlinie von Zeit zu Zeit aktualisieren. Änderungen werden im Spiel mitgeteilt. Ihre fortgesetzte Nutzung des Spiels nach Veröffentlichung der Änderungen stellt Ihre Zustimmung zur aktualisierten Richtlinie dar.</p>
+
+            <h2>8. KONTAKT</h2>
+            <div class="contact-box">
+                <p>Für datenschutzbezogene Anfragen kontaktieren Sie uns bitte unter:</p>
+                <p><strong>arni@cococg.com</strong></p>
+            </div>
+
+            <p class="footer-note">
+                Durch die Nutzung von Guardian Tower Defense bestätigen Sie, dass Sie diese Datenschutzrichtlinie gelesen und verstanden haben und der Erfassung und Verarbeitung Ihrer Daten wie hier beschrieben zustimmen.
+            </p>
+        </div>
+
+        <!-- FRANÇAIS -->
+        <div id="fr" class="content">
+            <h1>Guardian Tower Defense - Politique de Confidentialité</h1>
+            <p class="effective-date">Date d'entrée en vigueur : 8 novembre 2025</p>
+
+            <h2>1. INFORMATIONS QUE NOUS COLLECTONS</h2>
+            <p>Nous collectons les informations suivantes :</p>
+            <ul>
+                <li>Identifiant publicitaire (un identifiant unique à des fins publicitaires)</li>
+                <li>Adresse IP pour déterminer votre région et afficher des publicités pertinentes</li>
+                <li>Données de progression du jeu et réalisations</li>
+                <li>Informations techniques sur l'appareil (modèle, système d'exploitation, version)</li>
+            </ul>
+
+            <h2>2. UTILISATION DES INFORMATIONS</h2>
+            <p>Les informations collectées sont utilisées pour :</p>
+            <ul>
+                <li>Afficher des publicités personnalisées</li>
+                <li>Améliorer votre expérience de jeu</li>
+                <li>Analyser et optimiser le jeu</li>
+                <li>Respecter les exigences légales</li>
+            </ul>
+
+            <h2>3. PUBLICITÉ ET PARTENAIRES</h2>
+            <p>Pour monétiser le jeu, nous utilisons le SDK Appodeal, qui peut collecter et traiter des données pour afficher des publicités.</p>
+            <p>Politique de confidentialité d'Appodeal : <a href="https://www.appodeal.com/privacy-policy" target="_blank">https://www.appodeal.com/privacy-policy</a></p>
+            
+            <p>Nos partenaires publicitaires comprennent :</p>
+            <ul>
+                <li>AdMob (Google) : <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></li>
+                <li>AppLovin : <a href="https://www.applovin.com/privacy/" target="_blank">https://www.applovin.com/privacy/</a></li>
+                <li>Unity Ads : <a href="https://unity3d.com/legal/privacy-policy" target="_blank">https://unity3d.com/legal/privacy-policy</a></li>
+                <li>Vungle : <a href="https://vungle.com/privacy/" target="_blank">https://vungle.com/privacy/</a></li>
+                <li>MyTarget : <a href="https://legal.my.com/us/mytarget/privacy/" target="_blank">https://legal.my.com/us/mytarget/privacy/</a></li>
+                <li>Yandex : <a href="https://yandex.com/legal/confidential/" target="_blank">https://yandex.com/legal/confidential/</a></li>
+            </ul>
+
+            <h2>4. PROTECTION DES DONNÉES</h2>
+            <p>Nous mettons en œuvre des mesures techniques et organisationnelles pour protéger vos données contre tout accès, divulgation, modification ou destruction non autorisés.</p>
+
+            <h2>5. VOS DROITS (RGPD/CCPA)</h2>
+            <p>Vous avez le droit de :</p>
+            <ul>
+                <li>Demander l'accès à vos données personnelles</li>
+                <li>Demander la suppression de vos données personnelles</li>
+                <li>Refuser la publicité personnalisée</li>
+                <li>Retirer votre consentement au traitement des données</li>
+            </ul>
+            <p>Pour exercer ces droits, veuillez nous contacter à l'adresse e-mail fournie ci-dessous.</p>
+
+            <h2>6. CONFIDENTIALITÉ DES ENFANTS</h2>
+            <p>Ce jeu n'est pas destiné aux enfants de moins de 13 ans. Nous ne collectons pas sciemment d'informations personnelles auprès d'enfants de moins de 13 ans. Si vous êtes parent ou tuteur et pensez que votre enfant nous a fourni des informations personnelles, veuillez nous contacter immédiatement.</p>
+
+            <h2>7. MODIFICATIONS DE CETTE POLITIQUE</h2>
+            <p>Nous pouvons mettre à jour cette Politique de confidentialité de temps en temps. Tout changement sera communiqué dans le jeu. Votre utilisation continue du jeu après la publication des modifications constitue votre acceptation de la politique mise à jour.</p>
+
+            <h2>8. NOUS CONTACTER</h2>
+            <div class="contact-box">
+                <p>Pour toute question relative à la confidentialité, veuillez nous contacter à :</p>
+                <p><strong>arni@cococg.com</strong></p>
+            </div>
+
+            <p class="footer-note">
+                En utilisant Guardian Tower Defense, vous reconnaissez avoir lu et compris cette Politique de confidentialité et acceptez la collecte et le traitement de vos données comme décrit ici.
+            </p>
+        </div>
+
+        <!-- 日本語 (JAPANESE) -->
+        <div id="ja" class="content">
+            <h1>Guardian Tower Defense - プライバシーポリシー</h1>
+            <p class="effective-date">発効日：2025年11月8日</p>
+
+            <h2>1. 収集する情報</h2>
+            <p>当社は以下の情報を収集します：</p>
+            <ul>
+                <li>広告ID（広告目的の一意の識別子）</li>
+                <li>地域を特定し関連する広告を表示するためのIPアドレス</li>
+                <li>ゲームの進行状況と実績データ</li>
+                <li>デバイスの技術情報（モデル、OS、バージョン）</li>
+            </ul>
+
+            <h2>2. 情報の使用</h2>
+            <p>収集した情報は以下の目的で使用されます：</p>
+            <ul>
+                <li>パーソナライズされた広告の表示</li>
+                <li>ゲーム体験の向上</li>
+                <li>ゲームの分析と最適化</li>
+                <li>法的要件の遵守</li>
+            </ul>
+
+            <h2>3. 広告とパートナー</h2>
+            <p>ゲームの収益化のため、Appodeal SDKを使用しています。これは広告を表示するためにデータを収集・処理する場合があります。</p>
+            <p>Appodealプライバシーポリシー：<a href="https://www.appodeal.com/privacy-policy" target="_blank">https://www.appodeal.com/privacy-policy</a></p>
+            
+            <p>当社の広告パートナーには以下が含まれます：</p>
+            <ul>
+                <li>AdMob (Google)：<a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></li>
+                <li>AppLovin：<a href="https://www.applovin.com/privacy/" target="_blank">https://www.applovin.com/privacy/</a></li>
+                <li>Unity Ads：<a href="https://unity3d.com/legal/privacy-policy" target="_blank">https://unity3d.com/legal/privacy-policy</a></li>
+                <li>Vungle：<a href="https://vungle.com/privacy/" target="_blank">https://vungle.com/privacy/</a></li>
+                <li>MyTarget：<a href="https://legal.my.com/us/mytarget/privacy/" target="_blank">https://legal.my.com/us/mytarget/privacy/</a></li>
+                <li>Yandex：<a href="https://yandex.com/legal/confidential/" target="_blank">https://yandex.com/legal/confidential/</a></li>
+            </ul>
+
+            <h2>4. データ保護</h2>
+            <p>当社は、不正アクセス、開示、改ざん、または破壊からお客様のデータを保護するための技術的および組織的措置を実施しています。</p>
+
+            <h2>5. お客様の権利（GDPR/CCPA）</h2>
+            <p>お客様には以下の権利があります：</p>
+            <ul>
+                <li>個人データへのアクセスを要求する</li>
+                <li>個人データの削除を要求する</li>
+                <li>パーソナライズされた広告をオプトアウトする</li>
+                <li>データ処理の同意を撤回する</li>
+            </ul>
+            <p>これらの権利を行使するには、下記のメールアドレスまでご連絡ください。</p>
+
+            <h2>6. 子供のプライバシー</h2>
+            <p>このゲームは13歳未満のお子様を対象としていません。当社は13歳未満のお子様から意図的に個人情報を収集することはありません。保護者の方で、お子様が当社に個人情報を提供したと思われる場合は、直ちにご連絡ください。</p>
+
+            <h2>7. ポリシーの変更</h2>
+            <p>当社は、このプライバシーポリシーを随時更新する場合があります。変更はゲーム内で通知されます。変更の公開後もゲームを継続して使用することは、更新されたポリシーへの同意を意味します。</p>
+
+            <h2>8. お問い合わせ</h2>
+            <div class="contact-box">
+                <p>プライバシーに関するお問い合わせは、以下までご連絡ください：</p>
+                <p><strong>arni@cococg.com</strong></p>
+            </div>
+
+            <p class="footer-note">
+                Guardian Tower Defenseを使用することで、お客様はこのプライバシーポリシーを読み、理解したこと、およびここに記載されているデータの収集と処理に同意することを認めます。
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Автоопределение языка браузера при первой загрузке
+        function detectBrowserLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            const langCode = browserLang.split('-')[0]; // 'en-US' -> 'en'
+            
+            const supportedLangs = ['en', 'es', 'pt', 'ru', 'zh', 'de', 'fr', 'ja'];
+            
+            if (supportedLangs.includes(langCode)) {
+                return langCode;
+            }
+            return 'en'; // по умолчанию английский
+        }
+
+        function switchLang(lang) {
+            // Скрыть все контенты
+            document.querySelectorAll('.content').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Показать выбранный
+            document.getElementById(lang).classList.add('active');
+            
+            // Обновить кнопки
+            document.querySelectorAll('.language-selector button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`button[data-lang="${lang}"]`).classList.add('active');
+            
+            // Сохранить выбор в localStorage
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // Обновить язык HTML
+            document.documentElement.lang = lang;
+        }
+
+        // Инициализация при загрузке страницы
+        window.addEventListener('DOMContentLoaded', () => {
+            // Проверить сохраненный язык или автоопределить
+            const savedLang = localStorage.getItem('preferredLanguage');
+            const initialLang = savedLang || detectBrowserLanguage();
+            
+            switchLang(initialLang);
+        });
+    </script>
+</body>
+</html>
