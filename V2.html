@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Option 2: Hero Valley</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ======================================
+         * СТИЛЬ 2: "ДОЛИНА ГЕРОЕВ"
+         * ======================================
+        */
+        :root {
+            --font-header: 'Bangers', cursive;
+            --font-body: 'Nunito', sans-serif;
+            
+            --color-sky: #a0d8ef;
+            --color-grass: #84e184;
+            --color-stone-light: #d8d8d8;
+            --color-stone-dark: #6c6c6c;
+            --color-wood-backing: #5c3a1f;
+            --color-paper: #fefcf5;
+            --color-text: #3d342a;
+            
+            /* Стили кнопок (твоя директива) */
+            --btn-accept-bg: #f9c74f;
+            --btn-accept-text: #6d4c23;
+            --btn-accept-border: #d6a23a;
+            --btn-accept-shadow: #b58930;
+            --btn-decline-bg: #c5c5c5;
+            --btn-decline-text: #4a4a4a;
+            --btn-decline-border: #ababab;
+            --btn-decline-shadow: #9a9a9a;
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            color: var(--color-text);
+            /* Фон - градиент от неба к траве */
+            background: linear-gradient(180deg, var(--color-sky) 0%, var(--color-grass) 70%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        /* Шапка в виде каменной кладки */
+        .header {
+            background: var(--color-stone-light);
+            border: 6px solid var(--color-stone-dark);
+            border-radius: 10px;
+            padding: 10px 30px;
+            text-align: center;
+            box-shadow: 0 8px 0 #4a4a4a, 0 12px 25px rgba(0,0,0,0.3);
+            position: relative;
+            margin-bottom: 25px;
+            /* Текстура камня */
+            background-image: linear-gradient(335deg, #c0c0c0 23px, transparent 23px),
+                              linear-gradient(155deg, #c0c0c0 23px, transparent 23px),
+                              linear-gradient(335deg, #c0c0c0 23px, transparent 23px),
+                              linear-gradient(155deg, #c0c0c0 23px, transparent 23px);
+            background-size: 58px 58px;
+            background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
+        }
+        
+        .logo {
+            font-family: var(--font-header);
+            font-size: 3.5rem;
+            color: #fff;
+            text-shadow: 4px 4px 0 var(--color-stone-dark);
+            letter-spacing: 2px;
+            margin: 0;
+            line-height: 1;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--color-stone-dark);
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        /* Блок выбора языка */
+        .lang-selector-block {
+            margin-bottom: 20px;
+        }
+        .lang-picker {
+            position: relative;
+            max-width: 440px;
+            margin: 0 auto;
+        }
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            color: var(--btn-decline-text);
+            font-weight: 800;
+            border: 2px solid var(--btn-decline-border);
+            border-bottom-width: 5px;
+            background: var(--btn-decline-bg);
+            cursor: pointer;
+            user-select: none;
+            transition: .1s ease;
+            justify-content: center;
+        }
+        .lang-btn:hover { background: #d0d0d0; }
+        .lang-btn:active {
+            transform: translateY(3px);
+            border-bottom-width: 2px;
+        }
+        .lang-menu {
+            position: absolute;
+            z-index: 50;
+            left: 0; right: 0;
+            top: 110%;
+            width: 100%;
+            background: var(--color-paper);
+            border: 2px solid var(--color-wood-backing);
+            border-radius: 16px;
+            padding: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.5);
+            display: none;
+        }
+        .lang-menu.open { display: block; }
+        .lang-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .lang-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            color: var(--color-text);
+            background: transparent;
+            cursor: pointer;
+            transition: .2s;
+            text-align: left;
+            width: 100%;
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 800;
+        }
+        .lang-item:hover { background: rgba(0,0,0,.05); border-color: var(--color-wood-backing); }
+        .lang-native { color: var(--color-wood-backing); font-size: 11.5px; }
+
+        /* Карточка "Бумага на Дереве" (как в референсе) */
+        .card {
+            position: relative;
+            background: var(--color-wood-backing); /* Деревянная подложка */
+            border: 5px solid #4a2d1e;
+            border-radius: 25px;
+            padding: 15px; /* Отступ для бумаги */
+            box-shadow: 0 8px 0 #3b2316, 0 12px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        /* Обёртка для "бумаги" */
+        .content-wrapper {
+            background: var(--color-paper);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .content {
+            display: none;
+            padding: 20px 30px;
+            max-height: 45vh; /* Чуть меньше из-за паддингов */
+            overflow-y: auto;
+        }
+        .content.active { display: block; }
+
+        /* Скроллбар */
+        .content::-webkit-scrollbar { width: 12px; }
+        .content::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 10px; }
+        .content::-webkit-scrollbar-thumb { background: var(--color-grass); border-radius: 10px; border: 2px solid var(--color-paper); }
+        
+        h1 {
+            font-family: var(--font-header);
+            font-size: 2.5rem;
+            color: #2E7D32; /* Зеленый, как в рефе */
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .effective-date { text-align: center; margin-bottom: 20px; font-style: italic; }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #2E7D32; /* Зеленый, как в рефе */
+            margin: 25px 0 10px;
+            padding-left: 10px;
+            border-left: 5px solid #4CAF50; /* Как в рефе */
+        }
+        p, ul { color: var(--color-text); line-height: 1.6; }
+        ul { margin-left: 20px; }
+        a { color: #007bff; font-weight: 800; }
+
+        /* Кнопки Принять/Отклонить */
+        .buttons-container {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            padding: 20px 30px;
+            border-top: 2px solid rgba(0,0,0,0.1);
+        }
+        
+        .buttons-container button {
+            padding: 12px 30px;
+            font-size: 18px;
+            font-weight: 900;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.1s ease-out;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            min-width: 160px;
+            font-family: var(--font-body);
+            border-style: solid;
+            border-width: 2px;
+            border-bottom-width: 6px;
+        }
+        .buttons-container button:hover { filter: brightness(1.05); }
+        .buttons-container button:active {
+            transform: translateY(4px);
+            border-bottom-width: 2px;
+        }
+        
+        .accept-btn {
+            background: var(--btn-accept-bg);
+            color: var(--btn-accept-text);
+            border-color: var(--btn-accept-border);
+            border-bottom-color: var(--btn-accept-shadow);
+        }
+        .decline-btn {
+            background: var(--btn-decline-bg);
+            color: var(--btn-decline-text);
+            border-color: var(--btn-decline-border);
+            border-bottom-color: var(--btn-decline-shadow);
+        }
+
+        /* Адаптация */
+        @media (max-width: 768px) {
+            .logo { font-size: 2.5rem; }
+            .buttons-container { flex-direction: column; }
+            .buttons-container button { width: 100%; }
+            .content { padding: 15px 20px; }
+            .card { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="wrap">
+        <div class="header">
+            <div class="logo">Guardian Tower Defense</div>
+            <div class="subtitle">Privacy Policy</div>
+        </div>
+
+        <div class="lang-selector-block">
+            <div class="lang-picker">
+                <div class="lang-btn" id="langBtn">
+                    <span id="currentFlag">🇬🇧</span>
+                    <span id="currentLang">English</span>
+                    <span class="caret">▾</span>
+                </div>
+                <div class="lang-menu" id="langMenu">
+                    <div class="lang-grid">
+                        <button class="lang-item" data-lang="en"><span class="flag">🇬🇧</span><div><div class="lang-name">English</div><div class="lang-native">English</div></div></button>
+                        <button class="lang-item" data-lang="ru"><span class="flag">🇷🇺</span><div><div class="lang-name">Russian</div><div class="lang-native">Русский</div></div></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="content-wrapper">
+                <section id="en" class="content">
+                    <h1>Privacy Policy</h1>
+                    <p class="effective-date">Effective Date: November 10, 2025</p>
+                    
+                    <h2>🛡️ 1. INFORMATION WE COLLECT</h2>
+                    <p>We collect the following information:</p>
+                    <ul>
+                        <li>Advertising ID (a unique identifier for advertising purposes)</li>
+                        <li>IP address to determine your region and show relevant advertisements</li>
+                        <li>Game progress and achievement data</li>
+                        <li>Technical device information (model, operating system, version)</li>
+                    </ul>
+                    
+                    <h2>⚔️ 2. USE OF INFORMATION</h2>
+                    <p>The collected information is used for:</p>
+                    <ul>
+                        <li>Displaying personalized advertisements</li>
+                        <li>Improving your gaming experience</li>
+                        <li>Analyzing and optimizing the game</li>
+                    </ul>
+                    
+                    <h2>📢 3. ADVERTISING AND PARTNERS</h2>
+                    <p>To monetize the game, we use the Appodeal SDK. Appodeal Privacy Policy: <a href="https://www.appodeal.com/privacy-policy" target="_blank">appodeal.com/privacy-policy</a></p>
+                    
+                    <h2>👤 5. YOUR RIGHTS (GDPR/CCPA)</h2>
+                    <p>You have the right to request access to or deletion of your personal data. To exercise these rights, please contact us.</p>
+                    
+                    <h2>📧 8. CONTACT US</h2>
+                    <p>For privacy-related inquiries: <strong>arni@cococg.com</strong></p>
+                </section>
+
+                <section id="ru" class="content">
+                    <h1>Политика конфиденциальности</h1>
+                    <p class="effective-date">Дата вступления в силу: 10 ноября 2025</p>
+                    
+                    <h2>🛡️ 1. КАКУЮ ИНФОРМАЦИЮ МЫ СОБИРАЕМ</h2>
+                    <p>Мы собираем следующую информацию:</p>
+                    <ul>
+                        <li>Рекламный идентификатор (уникальный идентификатор для рекламных целей)</li>
+                        <li>IP-адрес для определения вашего региона и показа релевантной рекламы</li>
+                        <li>Данные об игровом прогрессе и достижениях</li>
+                        <li>Техническая информация об устройстве (модель, ОС, версия)</li>
+                    </ul>
+                    
+                    <h2>⚔️ 2. ИСПОЛЬЗОВАНИЕ ИНФОРМАЦИИ</h2>
+                    <p>Собранная информация используется для:</p>
+                    <ul>
+                        <li>Показа персонализированной рекламы</li>
+                        <li>Улучшения вашего игрового опыта</li>
+                        <li>Анализа и оптимизации игры</li>
+                    </ul>
+                    
+                    <h2>📢 3. РЕКЛАМА И ПАРТНЕРЫ</h2>
+                    <p>Для монетизации игры мы используем Appodeal SDK. Политика Appodeal: <a href="https://www.appodeal.com/privacy-policy" target="_blank">appodeal.com/privacy-policy</a></p>
+                    
+                    <h2>👤 5. ВАШИ ПРАВА (GDPR/CCPA)</h2>
+                    <p>Вы имеете право запросить доступ к вашим персональным данным или их удаление. Для реализации этих прав, свяжитесь с нами.</p>
+                    
+                    <h2>📧 8. СВЯЖИТЕСЬ С НАМИ</h2>
+                    <p>По вопросам конфиденциальности: <strong>arni@cococg.com</strong></p>
+                </section>
+
+                <div id="buttons-en" class="buttons-container" data-lang="en">
+                    <button class="decline-btn" onclick="declinePolicy()">Decline</button>
+                    <button class="accept-btn" onclick="acceptPolicy()">Accept</button>
+                </div>
+                <div id="buttons-ru" class="buttons-container" data-lang="ru" style="display:none;">
+                    <button class="decline-btn" onclick="declinePolicy()">Отклонить</button>
+                    <button class="accept-btn" onclick="acceptPolicy()">Принять</button>
+                </div>
+            </div> </div>
+    </div>
+
+    <script>
+      // Скрипт здесь (тот же, что и в прошлом варианте)
+      const FLAGS = { en:"🇬🇧", ru:"🇷🇺" };
+      const SUPPORTED = Object.keys(FLAGS);
+      const langBtn = document.getElementById('langBtn');
+      const langMenu = document.getElementById('langMenu');
+      const currentFlag = document.getElementById('currentFlag');
+      const currentLang = document.getElementById('currentLang');
+      
+      function openMenu(open){
+          langMenu.style.display = open ? 'block' : 'none';
+      }
+      
+      langBtn.addEventListener('click', (e)=>{ e.stopPropagation(); openMenu(langMenu.style.display === 'none'); });
+      document.addEventListener('click', ()=> openMenu(false));
+      langMenu.addEventListener('click', (e)=> e.stopPropagation());
+
+      function detectLanguage(){
+          const saved = localStorage.getItem('preferredLanguage');
+          if(saved && SUPPORTED.includes(saved)) return saved;
+          const nav = navigator.language || 'en';
+          const code = nav.split('-')[0].toLowerCase();
+          return SUPPORTED.includes(code) ? code : 'en';
+      }
+
+      function switchLang(lang){
+          document.querySelectorAll('.content').forEach(s=> s.style.display = 'none');
+          const section = document.getElementById(lang);
+          if(section){  
+              section.style.display = 'block';
+              section.scrollTop = 0;
+          }
+          
+          document.querySelectorAll('.buttons-container').forEach(b => {
+              b.style.display = (b.dataset.lang === lang) ? 'flex' : 'none';
+          });
+
+          currentFlag.textContent = FLAGS[lang] || '🌐';
+          const labelMap = { en:'English', ru:'Русский' };
+          currentLang.textContent = labelMap[lang] || 'Language';
+          
+          localStorage.setItem('preferredLanguage', lang);
+          openMenu(false);
+          
+          // Обновление активной кнопки в меню
+          document.querySelectorAll('.lang-item').forEach(btn => {
+              btn.style.fontWeight = (btn.dataset.lang === lang) ? '900' : '800';
+              btn.style.background = (btn.dataset.lang === lang) ? 'rgba(0,0,0,0.1)' : 'transparent';
+          });
+      }
+      
+      document.querySelectorAll('.lang-item').forEach(btn=>{
+          btn.addEventListener('click', ()=> switchLang(btn.dataset.lang));
+      });
+
+      switchLang(detectLanguage());
+
+      // Функции кнопок
+      function acceptPolicy() { console.log('Accept'); window.location.href = 'privacypolicy://accept'; }
+      function declinePolicy() { console.log('Decline'); window.location.href = 'privacypolicy://decline'; }
+    </script>
+</body>
+</html>
