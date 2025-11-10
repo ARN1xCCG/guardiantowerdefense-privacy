@@ -17,13 +17,15 @@
         *{box-sizing:border-box}
         body{
             margin:0;
+            padding:0;
             font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
             color:var(--text);
             background:
                 radial-gradient(1200px 600px at 10% -10%, #2b2d55 0%, transparent 60%),
                 radial-gradient(1000px 500px at 100% 0%, #1f3157 0%, transparent 60%),
                 linear-gradient(180deg, var(--bg1), var(--bg2));
-            min-height:100vh;
+            height:100vh;
+            overflow:hidden;
         }
         /* Top bar with glass look */
         .topbar{
@@ -107,7 +109,12 @@
         .lang-native{color:var(--muted); font-size:11.5px}
 
         /* Main card */
-        .wrap{max-width:1000px; margin:28px auto; padding:0 16px}
+        .wrap{
+            width:100%;
+            margin:0;
+            padding:0;
+            height:100vh;
+        }
 
         /* Language Selector Block */
         .lang-selector-block {
@@ -128,10 +135,11 @@
         .card{
             position:relative;
             background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-            border:1px solid rgba(255,255,255,.12);
-            border-radius:18px;
-            box-shadow:0 20px 60px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.05);
+            border:0;
+            border-radius:0;
+            box-shadow:none;
             overflow:hidden;
+            min-height: calc(100vh - 60px); /* Полный экран минус topbar */
         }
         .card::before{
             content:"";
@@ -143,8 +151,8 @@
             position:relative; z-index:1;
             padding:36px 28px;
             display:none;
-            /* ADDED: Scroll for content from new file */
-            max-height: 50vh;
+            /* Полноэкранный контент */
+            height: calc(100vh - 180px); /* Вычитаем topbar и кнопки */
             overflow-y: auto;
         }
         /* ADDED: Scrollbar styles from new file, adapted for dark theme */
