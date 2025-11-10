@@ -250,7 +250,7 @@
 
 		.wrap {
 			max-width: 900px;
-			margin: 4px auto !important; /* Принудительно */
+			margin: 6px auto !important; /* Принудительно */
 			padding: 0 16px;
 			position: relative;
 			z-index: 1;
@@ -305,7 +305,7 @@
             padding: 24px 32px; /* Увеличен padding */
             padding-right: 30px;
             display: none;
-            max-height: 60vh;
+            max-height: 50vh;
             overflow-y: auto;
             margin: 10px 12px 2px 8px;
         }
@@ -338,7 +338,7 @@
 
         /* ПРАВКА 3: Уменьшен размер заголовка для иконок */
         h1 {
-            font-size: clamp(18px, 5vw, 24px); /* Адаптивный размер от 18px до 24px */
+            font-size: clamp(20px, 5vw, 24px); /* Адаптивный размер от 18px до 24px */
             margin: 0 0 12px;
             font-weight: 900;
             color: var(--text-dark);
@@ -361,7 +361,7 @@
         }
 
         h2 {
-            font-size: clamp(16px, 4vw, 20px); /* Адаптивный размер от 16px до 20px */
+            font-size: clamp(18px, 4vw, 20px); /* Адаптивный размер от 16px до 20px */
             margin: 32px 0 16px;
             font-weight: 800;
             color: var(--primary-orange);
@@ -445,7 +445,7 @@
             display: flex;
             gap: 16px;
             justify-content: center;
-            padding: 12px 32px 32px;
+            padding: 6px 32px 32px;
             background: rgba(222, 184, 135, 0.3);
             border-top: 3px solid rgba(139, 69, 19, 0.3);
             position: relative;
@@ -510,7 +510,7 @@
 		
 		@media (max-width: 720px) {
 			.wrap {
-				margin: 4px auto !important;
+				margin: 6px auto 12px auto; !important;
 				padding: 0 12px;
 			}
 }		
@@ -530,11 +530,11 @@
 			}
 
 			h1 {
-				font-size: 18px !important; /* Принудительно меньше */
+				font-size: 20px !important; /* Принудительно меньше */
 			}
 
 			h2 {
-				font-size: 16px !important;
+				font-size: 18px !important;
 			}
 
 			p, li {
@@ -689,7 +689,7 @@
 
             <!-- RUSSIAN VERSION -->
             <section id="ru" class="content" lang="ru">
-                <h1>🏰 ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ 🏰</h1>
+                <h1>🏰 Политика кондфиденциальности 🏰</h1>
                 <p class="effective-date">⚔️ Дата вступления в силу: 10 ноября 2025 ⚔️</p>
 
                 <h2>🛡️ 1. КАКУЮ ИНФОРМАЦИЮ МЫ СОБИРАЕМ</h2>
@@ -861,6 +861,8 @@
             langMenu.classList.toggle('open', open);
             langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
             if (open) playClickSound(); // Звук при открытии меню
+			    // Сброс transform для фикса залипания
+			langBtn.style.transform = 'translateY(0)';
         }
 
         langBtn.addEventListener('click', (e) => {
