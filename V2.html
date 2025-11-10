@@ -3,428 +3,570 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Option 2: Hero Valley</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800;900&display=swap" rel="stylesheet">
-    
+    <meta name="description" content="Privacy Policy for Guardian Tower Defense">
+    <title>Privacy Policy - Guardian Tower Defense</title>
     <style>
-        /* ======================================
-         * СТИЛЬ 2: "ДОЛИНА ГЕРОЕВ"
-         * ======================================
-        */
-        :root {
-            --font-header: 'Bangers', cursive;
-            --font-body: 'Nunito', sans-serif;
-            
-            --color-sky: #a0d8ef;
-            --color-grass: #84e184;
-            --color-stone-light: #d8d8d8;
-            --color-stone-dark: #6c6c6c;
-            --color-wood-backing: #5c3a1f;
-            --color-paper: #fefcf5;
-            --color-text: #3d342a;
-            
-            /* Стили кнопок (твоя директива) */
-            --btn-accept-bg: #f9c74f;
-            --btn-accept-text: #6d4c23;
-            --btn-accept-border: #d6a23a;
-            --btn-accept-shadow: #b58930;
-            --btn-decline-bg: #c5c5c5;
-            --btn-decline-text: #4a4a4a;
-            --btn-decline-border: #ababab;
-            --btn-decline-shadow: #9a9a9a;
-        }
-        
-        * { box-sizing: border-box; }
-        
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
-            font-family: var(--font-body);
-            color: var(--color-text);
-            /* Фон - градиент от неба к траве */
-            background: linear-gradient(180deg, var(--color-sky) 0%, var(--color-grass) 70%);
-            min-height: 100vh;
-            padding: 20px;
+            padding: 0;
         }
 
-        .wrap {
+        body {
+            font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+            background: linear-gradient(180deg, #87CEEB 0%, #F0E68C 50%, #98D8C8 100%);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Decorative clouds */
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 100px;
+            z-index: 0;
+        }
+        body::before {
+            width: 200px;
+            height: 60px;
+            top: 10%;
+            left: -50px;
+            box-shadow: 120px 20px 0 20px rgba(255, 255, 255, 0.6);
+        }
+        body::after {
+            width: 150px;
+            height: 50px;
+            top: 30%;
+            right: -30px;
+            box-shadow: 90px 15px 0 15px rgba(255, 255, 255, 0.6);
+        }
+
+        .container {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
+            z-index: 1;
         }
-        
-        /* Шапка в виде каменной кладки */
+
+        /* Header with game logo */
         .header {
-            background: var(--color-stone-light);
-            border: 6px solid var(--color-stone-dark);
-            border-radius: 10px;
-            padding: 10px 30px;
-            text-align: center;
-            box-shadow: 0 8px 0 #4a4a4a, 0 12px 25px rgba(0,0,0,0.3);
-            position: relative;
-            margin-bottom: 25px;
-            /* Текстура камня */
-            background-image: linear-gradient(335deg, #c0c0c0 23px, transparent 23px),
-                              linear-gradient(155deg, #c0c0c0 23px, transparent 23px),
-                              linear-gradient(335deg, #c0c0c0 23px, transparent 23px),
-                              linear-gradient(155deg, #c0c0c0 23px, transparent 23px);
-            background-size: 58px 58px;
-            background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
-        }
-        
-        .logo {
-            font-family: var(--font-header);
-            font-size: 3.5rem;
-            color: #fff;
-            text-shadow: 4px 4px 0 var(--color-stone-dark);
-            letter-spacing: 2px;
-            margin: 0;
-            line-height: 1;
-        }
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--color-stone-dark);
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        /* Блок выбора языка */
-        .lang-selector-block {
-            margin-bottom: 20px;
-        }
-        .lang-picker {
-            position: relative;
-            max-width: 440px;
-            margin: 0 auto;
-        }
-        .lang-btn {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 14px;
-            border-radius: 12px;
-            color: var(--btn-decline-text);
-            font-weight: 800;
-            border: 2px solid var(--btn-decline-border);
-            border-bottom-width: 5px;
-            background: var(--btn-decline-bg);
-            cursor: pointer;
-            user-select: none;
-            transition: .1s ease;
-            justify-content: center;
-        }
-        .lang-btn:hover { background: #d0d0d0; }
-        .lang-btn:active {
-            transform: translateY(3px);
-            border-bottom-width: 2px;
-        }
-        .lang-menu {
-            position: absolute;
-            z-index: 50;
-            left: 0; right: 0;
-            top: 110%;
-            width: 100%;
-            background: var(--color-paper);
-            border: 2px solid var(--color-wood-backing);
-            border-radius: 16px;
-            padding: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,.5);
-            display: none;
-        }
-        .lang-menu.open { display: block; }
-        .lang-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-        }
-        .lang-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 12px;
-            border-radius: 10px;
-            border: 1px solid transparent;
-            color: var(--color-text);
-            background: transparent;
-            cursor: pointer;
-            transition: .2s;
-            text-align: left;
-            width: 100%;
-            font-family: var(--font-body);
-            font-size: 14px;
-            font-weight: 800;
-        }
-        .lang-item:hover { background: rgba(0,0,0,.05); border-color: var(--color-wood-backing); }
-        .lang-native { color: var(--color-wood-backing); font-size: 11.5px; }
-
-        /* Карточка "Бумага на Дереве" (как в референсе) */
-        .card {
-            position: relative;
-            background: var(--color-wood-backing); /* Деревянная подложка */
-            border: 5px solid #4a2d1e;
+            background: linear-gradient(180deg, #FFD700 0%, #FFA500 100%);
+            border: 5px solid #8B4513;
             border-radius: 25px;
-            padding: 15px; /* Отступ для бумаги */
-            box-shadow: 0 8px 0 #3b2316, 0 12px 30px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
-        
-        /* Обёртка для "бумаги" */
-        .content-wrapper {
-            background: var(--color-paper);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.1);
-        }
-        
-        .content {
-            display: none;
-            padding: 20px 30px;
-            max-height: 45vh; /* Чуть меньше из-за паддингов */
-            overflow-y: auto;
-        }
-        .content.active { display: block; }
-
-        /* Скроллбар */
-        .content::-webkit-scrollbar { width: 12px; }
-        .content::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 10px; }
-        .content::-webkit-scrollbar-thumb { background: var(--color-grass); border-radius: 10px; border: 2px solid var(--color-paper); }
-        
-        h1 {
-            font-family: var(--font-header);
-            font-size: 2.5rem;
-            color: #2E7D32; /* Зеленый, как в рефе */
+            padding: 20px;
             text-align: center;
-            letter-spacing: 1px;
+            box-shadow: 0 8px 0 #6B3410, 0 12px 25px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .header::before {
+            content: '👑';
+            position: absolute;
+            font-size: 50px;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 
+                3px 3px 0 #8B4513,
+                -1px -1px 0 #8B4513,
+                1px -1px 0 #8B4513,
+                -1px 1px 0 #8B4513,
+                1px 1px 0 #8B4513;
+            letter-spacing: 2px;
             margin-bottom: 10px;
         }
-        .effective-date { text-align: center; margin-bottom: 20px; font-style: italic; }
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: #2E7D32; /* Зеленый, как в рефе */
-            margin: 25px 0 10px;
-            padding-left: 10px;
-            border-left: 5px solid #4CAF50; /* Как в рефе */
-        }
-        p, ul { color: var(--color-text); line-height: 1.6; }
-        ul { margin-left: 20px; }
-        a { color: #007bff; font-weight: 800; }
 
-        /* Кнопки Принять/Отклонить */
-        .buttons-container {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            padding: 20px 30px;
-            border-top: 2px solid rgba(0,0,0,0.1);
+        .subtitle {
+            font-size: 16px;
+            color: #8B4513;
+            font-weight: bold;
         }
-        
-        .buttons-container button {
-            padding: 12px 30px;
+
+        /* Language selector */
+        .lang-selector {
+            background: rgba(255, 255, 255, 0.9);
+            border: 4px solid #8B4513;
+            border-radius: 20px;
+            padding: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 0 #6B3410, 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .lang-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .lang-btn {
+            background: linear-gradient(180deg, #4CAF50 0%, #2E7D32 100%);
+            border: 3px solid #1B5E20;
+            border-radius: 15px;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 0 #1B5E20;
+            position: relative;
+            top: 0;
+        }
+
+        .lang-btn:hover {
+            top: 2px;
+            box-shadow: 0 2px 0 #1B5E20;
+            transform: scale(1.05);
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(180deg, #FFD700 0%, #FFA500 100%);
+            border-color: #8B4513;
+            box-shadow: 0 4px 0 #8B4513;
+        }
+
+        .lang-btn.active:hover {
+            box-shadow: 0 2px 0 #8B4513;
+        }
+
+        /* Content card */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 5px solid #8B4513;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 8px 0 #6B3410, 0 12px 30px rgba(0,0,0,0.3);
+            margin-bottom: 25px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        /* Scrollbar styling */
+        .card::-webkit-scrollbar {
+            width: 12px;
+        }
+        .card::-webkit-scrollbar-track {
+            background: #F0E68C;
+            border-radius: 10px;
+            border: 2px solid #8B4513;
+        }
+        .card::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #4CAF50 0%, #2E7D32 100%);
+            border-radius: 10px;
+            border: 2px solid #1B5E20;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #8B4513;
+            margin-bottom: 15px;
+            text-align: center;
+            text-shadow: 2px 2px 0 rgba(255, 215, 0, 0.3);
+        }
+
+        .effective-date {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #2E7D32;
+            margin: 25px 0 12px;
+            padding-left: 10px;
+            border-left: 5px solid #4CAF50;
+        }
+
+        p {
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        ul {
+            margin: 12px 0 20px 30px;
+            color: #333;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        a {
+            color: #2196F3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #FFE082 0%, #FFD54F 100%);
+            border: 4px solid #F57F17;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            margin: 25px 0;
+            box-shadow: 0 4px 0 #E65100;
+        }
+
+        .contact strong {
+            color: #E65100;
             font-size: 18px;
+        }
+
+        .note {
+            background: rgba(255, 235, 59, 0.2);
+            border: 3px dashed #FBC02D;
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* Action buttons */
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 18px 45px;
+            font-size: 20px;
             font-weight: 900;
             border: none;
-            border-radius: 12px;
+            border-radius: 20px;
             cursor: pointer;
-            transition: all 0.1s ease-out;
+            transition: all 0.2s;
             text-transform: uppercase;
             letter-spacing: 1px;
-            min-width: 160px;
-            font-family: var(--font-body);
-            border-style: solid;
-            border-width: 2px;
-            border-bottom-width: 6px;
-        }
-        .buttons-container button:hover { filter: brightness(1.05); }
-        .buttons-container button:active {
-            transform: translateY(4px);
-            border-bottom-width: 2px;
-        }
-        
-        .accept-btn {
-            background: var(--btn-accept-bg);
-            color: var(--btn-accept-text);
-            border-color: var(--btn-accept-border);
-            border-bottom-color: var(--btn-accept-shadow);
-        }
-        .decline-btn {
-            background: var(--btn-decline-bg);
-            color: var(--btn-decline-text);
-            border-color: var(--btn-decline-border);
-            border-bottom-color: var(--btn-decline-shadow);
+            position: relative;
+            top: 0;
+            min-width: 180px;
         }
 
-        /* Адаптация */
+        .accept-btn {
+            background: linear-gradient(180deg, #66BB6A 0%, #43A047 100%);
+            color: white;
+            border: 4px solid #2E7D32;
+            box-shadow: 0 6px 0 #1B5E20, 0 10px 20px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+        }
+
+        .accept-btn:hover {
+            top: 3px;
+            box-shadow: 0 3px 0 #1B5E20, 0 7px 15px rgba(0,0,0,0.3);
+        }
+
+        .decline-btn {
+            background: linear-gradient(180deg, #EF5350 0%, #E53935 100%);
+            color: white;
+            border: 4px solid #C62828;
+            box-shadow: 0 6px 0 #B71C1C, 0 10px 20px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+        }
+
+        .decline-btn:hover {
+            top: 3px;
+            box-shadow: 0 3px 0 #B71C1C, 0 7px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .logo { font-size: 2.5rem; }
-            .buttons-container { flex-direction: column; }
-            .buttons-container button { width: 100%; }
-            .content { padding: 15px 20px; }
-            .card { padding: 10px; }
+            body {
+                padding: 15px;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .card {
+                padding: 20px;
+                max-height: 55vh;
+            }
+
+            .buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 15px 30px;
+                font-size: 18px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 <body>
-    
-    <div class="wrap">
+    <div class="container">
         <div class="header">
-            <div class="logo">Guardian Tower Defense</div>
+            <div class="logo">GUARDIAN TOWER DEFENSE</div>
             <div class="subtitle">Privacy Policy</div>
         </div>
 
-        <div class="lang-selector-block">
-            <div class="lang-picker">
-                <div class="lang-btn" id="langBtn">
-                    <span id="currentFlag">🇬🇧</span>
-                    <span id="currentLang">English</span>
-                    <span class="caret">▾</span>
-                </div>
-                <div class="lang-menu" id="langMenu">
-                    <div class="lang-grid">
-                        <button class="lang-item" data-lang="en"><span class="flag">🇬🇧</span><div><div class="lang-name">English</div><div class="lang-native">English</div></div></button>
-                        <button class="lang-item" data-lang="ru"><span class="flag">🇷🇺</span><div><div class="lang-name">Russian</div><div class="lang-native">Русский</div></div></button>
-                    </div>
-                </div>
+        <div class="lang-selector">
+            <div class="lang-buttons">
+                <button class="lang-btn active" onclick="switchLang('en')">🇬🇧 English</button>
+                <button class="lang-btn" onclick="switchLang('ru')">🇷🇺 Русский</button>
             </div>
         </div>
 
         <div class="card">
-            <div class="content-wrapper">
-                <section id="en" class="content">
-                    <h1>Privacy Policy</h1>
-                    <p class="effective-date">Effective Date: November 10, 2025</p>
-                    
-                    <h2>🛡️ 1. INFORMATION WE COLLECT</h2>
-                    <p>We collect the following information:</p>
-                    <ul>
-                        <li>Advertising ID (a unique identifier for advertising purposes)</li>
-                        <li>IP address to determine your region and show relevant advertisements</li>
-                        <li>Game progress and achievement data</li>
-                        <li>Technical device information (model, operating system, version)</li>
-                    </ul>
-                    
-                    <h2>⚔️ 2. USE OF INFORMATION</h2>
-                    <p>The collected information is used for:</p>
-                    <ul>
-                        <li>Displaying personalized advertisements</li>
-                        <li>Improving your gaming experience</li>
-                        <li>Analyzing and optimizing the game</li>
-                    </ul>
-                    
-                    <h2>📢 3. ADVERTISING AND PARTNERS</h2>
-                    <p>To monetize the game, we use the Appodeal SDK. Appodeal Privacy Policy: <a href="https://www.appodeal.com/privacy-policy" target="_blank">appodeal.com/privacy-policy</a></p>
-                    
-                    <h2>👤 5. YOUR RIGHTS (GDPR/CCPA)</h2>
-                    <p>You have the right to request access to or deletion of your personal data. To exercise these rights, please contact us.</p>
-                    
-                    <h2>📧 8. CONTACT US</h2>
-                    <p>For privacy-related inquiries: <strong>arni@cococg.com</strong></p>
-                </section>
-
-                <section id="ru" class="content">
-                    <h1>Политика конфиденциальности</h1>
-                    <p class="effective-date">Дата вступления в силу: 10 ноября 2025</p>
-                    
-                    <h2>🛡️ 1. КАКУЮ ИНФОРМАЦИЮ МЫ СОБИРАЕМ</h2>
-                    <p>Мы собираем следующую информацию:</p>
-                    <ul>
-                        <li>Рекламный идентификатор (уникальный идентификатор для рекламных целей)</li>
-                        <li>IP-адрес для определения вашего региона и показа релевантной рекламы</li>
-                        <li>Данные об игровом прогрессе и достижениях</li>
-                        <li>Техническая информация об устройстве (модель, ОС, версия)</li>
-                    </ul>
-                    
-                    <h2>⚔️ 2. ИСПОЛЬЗОВАНИЕ ИНФОРМАЦИИ</h2>
-                    <p>Собранная информация используется для:</p>
-                    <ul>
-                        <li>Показа персонализированной рекламы</li>
-                        <li>Улучшения вашего игрового опыта</li>
-                        <li>Анализа и оптимизации игры</li>
-                    </ul>
-                    
-                    <h2>📢 3. РЕКЛАМА И ПАРТНЕРЫ</h2>
-                    <p>Для монетизации игры мы используем Appodeal SDK. Политика Appodeal: <a href="https://www.appodeal.com/privacy-policy" target="_blank">appodeal.com/privacy-policy</a></p>
-                    
-                    <h2>👤 5. ВАШИ ПРАВА (GDPR/CCPA)</h2>
-                    <p>Вы имеете право запросить доступ к вашим персональным данным или их удаление. Для реализации этих прав, свяжитесь с нами.</p>
-                    
-                    <h2>📧 8. СВЯЖИТЕСЬ С НАМИ</h2>
-                    <p>По вопросам конфиденциальности: <strong>arni@cococg.com</strong></p>
-                </section>
-
-                <div id="buttons-en" class="buttons-container" data-lang="en">
-                    <button class="decline-btn" onclick="declinePolicy()">Decline</button>
-                    <button class="accept-btn" onclick="acceptPolicy()">Accept</button>
+            <!-- English Version -->
+            <div id="en" class="content active">
+                <h1>Privacy Policy</h1>
+                <p class="effective-date">Effective Date: November 10, 2025</p>
+                
+                <h2>🛡️ 1. INFORMATION WE COLLECT</h2>
+                <p>We collect the following information:</p>
+                <ul>
+                    <li>Advertising ID (a unique identifier for advertising purposes)</li>
+                    <li>IP address to determine your region and show relevant advertisements</li>
+                    <li>Game progress and achievement data</li>
+                    <li>Technical device information (model, operating system, version)</li>
+                </ul>
+                
+                <h2>⚔️ 2. USE OF INFORMATION</h2>
+                <p>The collected information is used for:</p>
+                <ul>
+                    <li>Displaying personalized advertisements</li>
+                    <li>Improving your gaming experience</li>
+                    <li>Analyzing and optimizing the game</li>
+                    <li>Complying with legal requirements</li>
+                </ul>
+                
+                <h2>📢 3. ADVERTISING AND PARTNERS</h2>
+                <p>To monetize the game, we use the Appodeal SDK, which may collect and process data to display advertisements.</p>
+                <p>Appodeal Privacy Policy: <a href="https://www.appodeal.com/privacy-policy" target="_blank">https://www.appodeal.com/privacy-policy</a></p>
+                <p>Our advertising partners include:</p>
+                <ul>
+                    <li>AdMob (Google): <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy ↗</a></li>
+                    <li>AppLovin: <a href="https://www.applovin.com/privacy/" target="_blank">Privacy Policy ↗</a></li>
+                    <li>Unity Ads: <a href="https://unity3d.com/legal/privacy-policy" target="_blank">Privacy Policy ↗</a></li>
+                    <li>Vungle: <a href="https://vungle.com/privacy/" target="_blank">Privacy Policy ↗</a></li>
+                    <li>MyTarget: <a href="https://legal.my.com/us/mytarget/privacy/" target="_blank">Privacy Policy ↗</a></li>
+                    <li>Yandex: <a href="https://yandex.com/legal/confidential/" target="_blank">Privacy Policy ↗</a></li>
+                </ul>
+                
+                <h2>🔒 4. DATA PROTECTION</h2>
+                <p>We implement technical and organizational measures to protect your data from unauthorized access, disclosure, alteration, or destruction.</p>
+                
+                <h2>👤 5. YOUR RIGHTS (GDPR/CCPA)</h2>
+                <p>You have the right to:</p>
+                <ul>
+                    <li>Request access to your personal data</li>
+                    <li>Request deletion of your personal data</li>
+                    <li>Opt-out of personalized advertising</li>
+                    <li>Withdraw consent for data processing</li>
+                </ul>
+                <p>To exercise these rights, please contact us at the email address provided below.</p>
+                
+                <h2>👶 6. CHILDREN'S PRIVACY</h2>
+                <p>This game is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately.</p>
+                
+                <h2>📝 7. CHANGES TO THIS POLICY</h2>
+                <p>We may update this Privacy Policy from time to time. Any changes will be communicated within the game. Your continued use of the game after changes are posted constitutes your acceptance of the updated policy.</p>
+                
+                <h2>📧 8. CONTACT US</h2>
+                <div class="contact">
+                    For privacy-related inquiries:<br>
+                    <strong>arni@cococg.com</strong>
                 </div>
-                <div id="buttons-ru" class="buttons-container" data-lang="ru" style="display:none;">
-                    <button class="decline-btn" onclick="declinePolicy()">Отклонить</button>
-                    <button class="accept-btn" onclick="acceptPolicy()">Принять</button>
+                
+                <div class="note">
+                    ⚠️ By using Guardian Tower Defense, you acknowledge that you have read and understood this Privacy Policy and agree to the collection and processing of your data as described herein.
                 </div>
-            </div> </div>
+            </div>
+
+            <!-- Russian Version -->
+            <div id="ru" class="content">
+                <h1>Политика конфиденциальности</h1>
+                <p class="effective-date">Дата вступления в силу: 10 ноября 2025</p>
+                
+                <h2>🛡️ 1. КАКУЮ ИНФОРМАЦИЮ МЫ СОБИРАЕМ</h2>
+                <p>Мы собираем следующую информацию:</p>
+                <ul>
+                    <li>Рекламный идентификатор (уникальный идентификатор для рекламных целей)</li>
+                    <li>IP-адрес для определения вашего региона и показа релевантной рекламы</li>
+                    <li>Данные об игровом прогрессе и достижениях</li>
+                    <li>Техническая информация об устройстве (модель, операционная система, версия)</li>
+                </ul>
+                
+                <h2>⚔️ 2. ИСПОЛЬЗОВАНИЕ ИНФОРМАЦИИ</h2>
+                <p>Собранная информация используется для:</p>
+                <ul>
+                    <li>Показа персонализированной рекламы</li>
+                    <li>Улучшения вашего игрового опыта</li>
+                    <li>Анализа и оптимизации игры</li>
+                    <li>Соблюдения юридических требований</li>
+                </ul>
+                
+                <h2>📢 3. РЕКЛАМА И ПАРТНЕРЫ</h2>
+                <p>Для монетизации игры мы используем Appodeal SDK, который может собирать и обрабатывать данные для показа рекламы.</p>
+                <p>Политика конфиденциальности Appodeal: <a href="https://www.appodeal.com/privacy-policy" target="_blank">https://www.appodeal.com/privacy-policy</a></p>
+                <p>Наши рекламные партнеры включают:</p>
+                <ul>
+                    <li>AdMob (Google): <a href="https://policies.google.com/privacy" target="_blank">Политика конфиденциальности ↗</a></li>
+                    <li>AppLovin: <a href="https://www.applovin.com/privacy/" target="_blank">Политика конфиденциальности ↗</a></li>
+                    <li>Unity Ads: <a href="https://unity3d.com/legal/privacy-policy" target="_blank">Политика конфиденциальности ↗</a></li>
+                    <li>Vungle: <a href="https://vungle.com/privacy/" target="_blank">Политика конфиденциальности ↗</a></li>
+                    <li>MyTarget: <a href="https://legal.my.com/us/mytarget/privacy/" target="_blank">Политика конфиденциальности ↗</a></li>
+                    <li>Yandex: <a href="https://yandex.com/legal/confidential/" target="_blank">Политика конфиденциальности ↗</a></li>
+                </ul>
+                
+                <h2>🔒 4. ЗАЩИТА ДАННЫХ</h2>
+                <p>Мы принимаем технические и организационные меры для защиты ваших данных от несанкционированного доступа, раскрытия, изменения или уничтожения.</p>
+                
+                <h2>👤 5. ВАШИ ПРАВА (GDPR/CCPA)</h2>
+                <p>Вы имеете право:</p>
+                <ul>
+                    <li>Запросить доступ к вашим персональным данным</li>
+                    <li>Запросить удаление ваших персональных данных</li>
+                    <li>Отказаться от персонализированной рекламы</li>
+                    <li>Отозвать согласие на обработку данных</li>
+                </ul>
+                <p>Для реализации этих прав, пожалуйста, свяжитесь с нами по электронной почте, указанной ниже.</p>
+                
+                <h2>👶 6. КОНФИДЕНЦИАЛЬНОСТЬ ДЕТЕЙ</h2>
+                <p>Эта игра не предназначена для детей младше 13 лет. Мы не собираем умышленно личную информацию от детей младше 13 лет. Если вы являетесь родителем или опекуном и считаете, что ваш ребенок предоставил нам личную информацию, пожалуйста, немедленно свяжитесь с нами.</p>
+                
+                <h2>📝 7. ИЗМЕНЕНИЯ В ЭТОЙ ПОЛИТИКЕ</h2>
+                <p>Мы можем время от времени обновлять эту Политику конфиденциальности. О любых изменениях будет сообщено в игре. Ваше дальнейшее использование игры после публикации изменений означает ваше согласие с обновленной политикой.</p>
+                
+                <h2>📧 8. СВЯЖИТЕСЬ С НАМИ</h2>
+                <div class="contact">
+                    По вопросам конфиденциальности:<br>
+                    <strong>arni@cococg.com</strong>
+                </div>
+                
+                <div class="note">
+                    ⚠️ Используя Guardian Tower Defense, вы подтверждаете, что прочитали и поняли эту Политику конфиденциальности, и соглашаетесь на сбор и обработку ваших данных, как описано в этом документе.
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="decline-btn" onclick="declinePolicy()">
+                <span id="decline-text">DECLINE</span>
+            </button>
+            <button class="accept-btn" onclick="acceptPolicy()">
+                <span id="accept-text">ACCEPT</span>
+            </button>
+        </div>
     </div>
 
     <script>
-      // Скрипт здесь (тот же, что и в прошлом варианте)
-      const FLAGS = { en:"🇬🇧", ru:"🇷🇺" };
-      const SUPPORTED = Object.keys(FLAGS);
-      const langBtn = document.getElementById('langBtn');
-      const langMenu = document.getElementById('langMenu');
-      const currentFlag = document.getElementById('currentFlag');
-      const currentLang = document.getElementById('currentLang');
-      
-      function openMenu(open){
-          langMenu.style.display = open ? 'block' : 'none';
-      }
-      
-      langBtn.addEventListener('click', (e)=>{ e.stopPropagation(); openMenu(langMenu.style.display === 'none'); });
-      document.addEventListener('click', ()=> openMenu(false));
-      langMenu.addEventListener('click', (e)=> e.stopPropagation());
+        let currentLang = 'en';
 
-      function detectLanguage(){
-          const saved = localStorage.getItem('preferredLanguage');
-          if(saved && SUPPORTED.includes(saved)) return saved;
-          const nav = navigator.language || 'en';
-          const code = nav.split('-')[0].toLowerCase();
-          return SUPPORTED.includes(code) ? code : 'en';
-      }
+        function switchLang(lang) {
+            currentLang = lang;
+            
+            // Hide all content
+            document.querySelectorAll('.content').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Show selected content
+            document.getElementById(lang).classList.add('active');
+            
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update action button texts
+            const texts = {
+                en: { accept: 'ACCEPT', decline: 'DECLINE' },
+                ru: { accept: 'ПРИНЯТЬ', decline: 'ОТКЛОНИТЬ' }
+            };
+            
+            document.getElementById('accept-text').textContent = texts[lang].accept;
+            document.getElementById('decline-text').textContent = texts[lang].decline;
+            
+            // Scroll to top
+            document.querySelector('.card').scrollTop = 0;
+        }
 
-      function switchLang(lang){
-          document.querySelectorAll('.content').forEach(s=> s.style.display = 'none');
-          const section = document.getElementById(lang);
-          if(section){  
-              section.style.display = 'block';
-              section.scrollTop = 0;
-          }
-          
-          document.querySelectorAll('.buttons-container').forEach(b => {
-              b.style.display = (b.dataset.lang === lang) ? 'flex' : 'none';
-          });
+        function acceptPolicy() {
+            console.log('User accepted privacy policy');
+            window.location.href = 'privacypolicy://accept';
+            
+            if (window.parent && window.parent !== window) {
+                try {
+                    if (window.parent.onPrivacyPolicyAccept) {
+                        window.parent.onPrivacyPolicyAccept();
+                    }
+                } catch(e) {
+                    console.log('Cross-origin error, using URL scheme only');
+                }
+            }
+        }
 
-          currentFlag.textContent = FLAGS[lang] || '🌐';
-          const labelMap = { en:'English', ru:'Русский' };
-          currentLang.textContent = labelMap[lang] || 'Language';
-          
-          localStorage.setItem('preferredLanguage', lang);
-          openMenu(false);
-          
-          // Обновление активной кнопки в меню
-          document.querySelectorAll('.lang-item').forEach(btn => {
-              btn.style.fontWeight = (btn.dataset.lang === lang) ? '900' : '800';
-              btn.style.background = (btn.dataset.lang === lang) ? 'rgba(0,0,0,0.1)' : 'transparent';
-          });
-      }
-      
-      document.querySelectorAll('.lang-item').forEach(btn=>{
-          btn.addEventListener('click', ()=> switchLang(btn.dataset.lang));
-      });
+        function declinePolicy() {
+            console.log('User declined privacy policy');
+            window.location.href = 'privacypolicy://decline';
+            
+            if (window.parent && window.parent !== window) {
+                try {
+                    if (window.parent.onPrivacyPolicyDecline) {
+                        window.parent.onPrivacyPolicyDecline();
+                    }
+                } catch(e) {
+                    console.log('Cross-origin error, using URL scheme only');
+                }
+            }
+        }
 
-      switchLang(detectLanguage());
-
-      // Функции кнопок
-      function acceptPolicy() { console.log('Accept'); window.location.href = 'privacypolicy://accept'; }
-      function declinePolicy() { console.log('Decline'); window.location.href = 'privacypolicy://decline'; }
+        // Auto-scroll to top on load
+        window.onload = function() {
+            document.querySelector('.card').scrollTop = 0;
+        };
     </script>
 </body>
 </html>
