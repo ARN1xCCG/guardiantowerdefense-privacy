@@ -113,16 +113,12 @@
         .lang-selector-block {
             margin-bottom: 24px;
             display: flex;
-            flex-direction: column;
+            /* flex-direction: column; <-- УДАЛЕНО */
             align-items: center;
-            gap: 12px;
-        }
-        .lang-prompt {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--muted);
-            text-align: center;
-            line-height: 1.4;
+            /* gap: 12px; <-- УДАЛЕНО */
+            
+            /* Добавлено, чтобы .lang-picker точно был по центру */
+            justify-content: center; 
         }
         
         .card{
@@ -305,7 +301,7 @@
     <div class="wrap">
 
         <div class="lang-selector-block">
-            <div class="lang-prompt">Select your preferred language / Выберите язык / 选择语言</div>
+           
             <div class="lang-picker">
                 <div class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
                     <span class="flag" id="currentFlag">🌐</span>
@@ -1291,6 +1287,7 @@
     </script>
 </body>
 </html>
+
 
 
 
