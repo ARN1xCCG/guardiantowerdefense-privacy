@@ -1,10 +1,25 @@
-<!DOCTYPE html>
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+							<style>
+								body {
+									background-color: white; /* Ensure the iframe has a white background */
+								}
+
+								
+							</style>
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Privacy Policy for Guardian Tower Defense">
-    <title>Privacy Policy - Guardian Tower Defense</title>
+    <title>Guardian Tower Defense - Privacy Policy</title>
     <style>
         * {
             box-sizing: border-box;
@@ -12,374 +27,559 @@
             padding: 0;
         }
 
+        :root {
+            --primary-gold: #FFD700;
+            --primary-orange: #FF9500;
+            --primary-green: #4CAF50;
+            --bg-light: #FFF8DC;
+            --bg-cream: #FFF5E6;
+            --text-dark: #3E2723;
+            --text-brown: #5D4037;
+            --border-dark: #6D4C41;
+            --shadow-color: rgba(62, 39, 35, 0.3);
+            --button-decline: #F08A5D;
+            --button-decline-dark: #D65A5A;
+        }
+
         body {
-            font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
-            background: linear-gradient(180deg, #87CEEB 0%, #F0E68C 50%, #98D8C8 100%);
+            font-family: 'Comic Sans MS', 'Trebuchet MS', Arial, sans-serif;
+            background: linear-gradient(180deg, #87CEEB 0%, #FFE4B5 50%, #DEB887 100%);
             min-height: 100vh;
-            padding: 20px;
+            color: var(--text-dark);
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Decorative clouds */
-        body::before, body::after {
+        /* Декоративные облака */
+        body::before {
             content: '';
             position: fixed;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 100px;
-            z-index: 0;
-        }
-        body::before {
+            top: 10%;
+            left: -100px;
             width: 200px;
             height: 60px;
-            top: 10%;
-            left: -50px;
-            box-shadow: 120px 20px 0 20px rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 100px;
+            opacity: 0.5;
+            animation: float 20s infinite;
         }
+
         body::after {
-            width: 150px;
-            height: 50px;
+            content: '';
+            position: fixed;
             top: 30%;
-            right: -30px;
-            box-shadow: 90px 15px 0 15px rgba(255, 255, 255, 0.6);
+            right: -100px;
+            width: 250px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 120px;
+            opacity: 0.5;
+            animation: float 25s infinite reverse;
         }
 
-        .container {
-            max-width: 800px;
+        @keyframes float {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(calc(100vw + 200px)) translateY(-20px); }
+        }
+
+        /* Верхняя панель - деревянная */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: linear-gradient(180deg, #8B4513 0%, #654321 100%);
+            border-bottom: 4px solid #3E2723;
+            box-shadow: 0 4px 8px var(--shadow-color),
+                        inset 0 2px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .nav {
+            max-width: 1100px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Header with game logo */
-        .header {
-            background: linear-gradient(180deg, #FFD700 0%, #FFA500 100%);
-            border: 5px solid #8B4513;
-            border-radius: 25px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 8px 0 #6B3410, 0 12px 25px rgba(0,0,0,0.3);
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .header::before {
-            content: '👑';
-            position: absolute;
-            font-size: 50px;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 900;
-            color: #fff;
-            text-shadow: 
-                3px 3px 0 #8B4513,
-                -1px -1px 0 #8B4513,
-                1px -1px 0 #8B4513,
-                -1px 1px 0 #8B4513,
-                1px 1px 0 #8B4513;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            font-size: 16px;
-            color: #8B4513;
-            font-weight: bold;
-        }
-
-        /* Language selector */
-        .lang-selector {
-            background: rgba(255, 255, 255, 0.9);
-            border: 4px solid #8B4513;
-            border-radius: 20px;
-            padding: 15px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 0 #6B3410, 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        .lang-buttons {
+            padding: 16px 20px;
             display: flex;
-            gap: 15px;
+            align-items: center;
             justify-content: center;
+            gap: 16px;
             flex-wrap: wrap;
         }
 
-        .lang-btn {
-            background: linear-gradient(180deg, #4CAF50 0%, #2E7D32 100%);
-            border: 3px solid #1B5E20;
-            border-radius: 15px;
-            padding: 12px 25px;
-            font-size: 16px;
-            font-weight: bold;
-            color: white;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 4px 0 #1B5E20;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Игровой логотип */
+        .brand .logo {
+            padding: 8px 16px;
+            min-height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-orange) 100%);
+            border: 3px solid #FFF;
+            box-shadow: 0 4px 0 #B8860B,
+                        0 6px 12px rgba(0, 0, 0, 0.4);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFF;
+            font-weight: 900;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .brand .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .brand .title {
+            font-weight: 900;
+            font-size: 18px;
+            color: #FFF;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        /* Селектор языка */
+        .lang-picker {
             position: relative;
-            top: 0;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border-radius: 16px;
+            background: linear-gradient(180deg, #FFE4B5 0%, #DEB887 100%);
+            border: 3px solid var(--border-dark);
+            box-shadow: 0 4px 0 #5D4037,
+                        0 6px 12px rgba(0, 0, 0, 0.3);
+            color: var(--text-dark);
+            font-weight: 800;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.2s;
         }
 
         .lang-btn:hover {
-            top: 2px;
-            box-shadow: 0 2px 0 #1B5E20;
+            transform: translateY(-2px);
+        }
+
+        .lang-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #5D4037,
+                        0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .flag {
+            font-size: 24px;
+        }
+
+        .caret {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* Выпадающее меню */
+        .lang-menu {
+            position: absolute;
+            z-index: 150;
+            left: 0;
+            right: 0;
+            top: 110%;
+            background: linear-gradient(180deg, #FFF8DC 0%, #FFE4B5 100%);
+            border: 3px solid var(--border-dark);
+            border-radius: 16px;
+            padding: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            display: none;
+        }
+
+        .lang-menu.open {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .lang-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .lang-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            background: rgba(255, 255, 255, 0.6);
+            color: var(--text-dark);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .lang-item:hover {
+            background: var(--primary-gold);
+            border-color: var(--border-dark);
             transform: scale(1.05);
         }
 
-        .lang-btn.active {
-            background: linear-gradient(180deg, #FFD700 0%, #FFA500 100%);
-            border-color: #8B4513;
-            box-shadow: 0 4px 0 #8B4513;
+        .lang-name {
+            font-size: 16px;
         }
 
-        .lang-btn.active:hover {
-            box-shadow: 0 2px 0 #8B4513;
+        .lang-native {
+            font-size: 14px;
+            color: var(--text-brown);
         }
 
-        /* Content card */
+        /* Основной контейнер */
+        .wrap {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 16px;
+        }
+
+        .lang-selector-block {
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Карточка - пергамент */
         .card {
-            background: rgba(255, 255, 255, 0.95);
-            border: 5px solid #8B4513;
-            border-radius: 25px;
-            padding: 30px;
-            box-shadow: 0 8px 0 #6B3410, 0 12px 30px rgba(0,0,0,0.3);
-            margin-bottom: 25px;
+            position: relative;
+            background: linear-gradient(145deg, #FFF8DC 0%, #FAEBD7 100%);
+            border: 4px solid var(--border-dark);
+            border-radius: 20px;
+            box-shadow: 0 8px 0 #5D4037,
+                        0 12px 24px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+        }
+
+        /* Декоративная рамка */
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border: 2px dashed rgba(139, 69, 19, 0.3);
+            border-radius: 16px;
+            pointer-events: none;
+        }
+
+        /* Контент */
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 40px 32px;
+            display: none;
             max-height: 60vh;
             overflow-y: auto;
         }
 
-        /* Scrollbar styling */
-        .card::-webkit-scrollbar {
-            width: 12px;
-        }
-        .card::-webkit-scrollbar-track {
-            background: #F0E68C;
-            border-radius: 10px;
-            border: 2px solid #8B4513;
-        }
-        .card::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #4CAF50 0%, #2E7D32 100%);
-            border-radius: 10px;
-            border: 2px solid #1B5E20;
-        }
-
-        .content {
-            display: none;
-        }
-
         .content.active {
             display: block;
-            animation: fadeIn 0.3s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Кастомный скроллбар */
+        .content::-webkit-scrollbar {
+            width: 12px;
         }
 
+        .content::-webkit-scrollbar-track {
+            background: rgba(139, 69, 19, 0.2);
+            border-radius: 10px;
+        }
+
+        .content::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary-gold), var(--primary-orange));
+            border-radius: 10px;
+            border: 2px solid #FFF8DC;
+        }
+
+        .content::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--primary-orange), var(--primary-gold));
+        }
+
+        /* Типографика */
         h1 {
-            font-size: 26px;
-            color: #8B4513;
-            margin-bottom: 15px;
+            font-size: 32px;
+            margin: 0 0 12px;
+            font-weight: 900;
+            color: var(--text-dark);
             text-align: center;
-            text-shadow: 2px 2px 0 rgba(255, 215, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 0 rgba(255, 215, 0, 0.3);
         }
 
         .effective-date {
             text-align: center;
-            color: #666;
+            color: var(--text-brown);
             font-style: italic;
-            margin-bottom: 25px;
+            margin-bottom: 32px;
             font-size: 14px;
+            font-weight: 600;
         }
 
         h2 {
-            font-size: 20px;
-            color: #2E7D32;
-            margin: 25px 0 12px;
-            padding-left: 10px;
-            border-left: 5px solid #4CAF50;
+            font-size: 22px;
+            margin: 32px 0 16px;
+            font-weight: 800;
+            color: var(--primary-orange);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid var(--primary-gold);
         }
 
         p {
-            color: #333;
-            line-height: 1.6;
-            margin-bottom: 15px;
+            color: var(--text-dark);
+            margin: 0 0 16px;
+            line-height: 1.8;
             font-size: 15px;
+            font-weight: 600;
         }
 
         ul {
-            margin: 12px 0 20px 30px;
-            color: #333;
+            margin: 12px 0 20px 24px;
+            color: var(--text-dark);
         }
 
         li {
             margin: 8px 0;
-            line-height: 1.5;
+            line-height: 1.6;
+            font-weight: 600;
         }
 
         a {
-            color: #2196F3;
+            color: #1E88E5;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
         }
+
         a:hover {
             text-decoration: underline;
         }
 
+        /* Контактный блок */
         .contact {
-            background: linear-gradient(135deg, #FFE082 0%, #FFD54F 100%);
-            border: 4px solid #F57F17;
-            border-radius: 15px;
+            margin-top: 28px;
             padding: 20px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, #FFE082 100%);
+            border: 3px solid var(--border-dark);
+            box-shadow: 0 4px 0 #5D4037,
+                        0 6px 12px rgba(0, 0, 0, 0.3);
             text-align: center;
-            margin: 25px 0;
-            box-shadow: 0 4px 0 #E65100;
-        }
-
-        .contact strong {
-            color: #E65100;
-            font-size: 18px;
+            font-weight: 800;
+            font-size: 16px;
         }
 
         .note {
-            background: rgba(255, 235, 59, 0.2);
-            border: 3px dashed #FBC02D;
-            border-radius: 15px;
-            padding: 15px;
-            margin-top: 20px;
-            font-size: 13px;
-            color: #555;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 2px dashed rgba(139, 69, 19, 0.4);
+            color: var(--text-brown);
+            font-size: 14px;
+            font-style: italic;
+            font-weight: 600;
         }
 
-        /* Action buttons */
-        .buttons {
+        /* Контейнер кнопок */
+        .buttons-container {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             justify-content: center;
-            margin-top: 25px;
+            padding: 24px 32px 32px;
+            background: rgba(222, 184, 135, 0.3);
+            border-top: 3px solid rgba(139, 69, 19, 0.3);
         }
 
-        .btn {
-            padding: 18px 45px;
-            font-size: 20px;
+        .buttons-container button {
+            padding: 14px 32px;
+            font-size: 18px;
             font-weight: 900;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.2s;
             text-transform: uppercase;
             letter-spacing: 1px;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-width: 150px;
             position: relative;
-            top: 0;
-            min-width: 180px;
+            border: 3px solid #FFF;
         }
 
+        /* Кнопка "Принять" */
         .accept-btn {
-            background: linear-gradient(180deg, #66BB6A 0%, #43A047 100%);
-            color: white;
-            border: 4px solid #2E7D32;
-            box-shadow: 0 6px 0 #1B5E20, 0 10px 20px rgba(0,0,0,0.3);
-            text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-orange) 100%);
+            color: #FFF;
+            box-shadow: 0 6px 0 #B8860B,
+                        0 8px 16px rgba(0, 0, 0, 0.4);
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
         }
 
         .accept-btn:hover {
-            top: 3px;
-            box-shadow: 0 3px 0 #1B5E20, 0 7px 15px rgba(0,0,0,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 9px 0 #B8860B,
+                        0 11px 20px rgba(0, 0, 0, 0.5);
         }
 
+        .accept-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 #B8860B,
+                        0 5px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Кнопка "Отклонить" */
         .decline-btn {
-            background: linear-gradient(180deg, #EF5350 0%, #E53935 100%);
-            color: white;
-            border: 4px solid #C62828;
-            box-shadow: 0 6px 0 #B71C1C, 0 10px 20px rgba(0,0,0,0.3);
-            text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, var(--button-decline) 0%, var(--button-decline-dark) 100%);
+            color: #FFF;
+            box-shadow: 0 6px 0 #A0522D,
+                        0 8px 16px rgba(0, 0, 0, 0.4);
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
         }
 
         .decline-btn:hover {
-            top: 3px;
-            box-shadow: 0 3px 0 #B71C1C, 0 7px 15px rgba(0,0,0,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 9px 0 #A0522D,
+                        0 11px 20px rgba(0, 0, 0, 0.5);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
+        .decline-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 #A0522D,
+                        0 5px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Адаптив */
+        @media (max-width: 720px) {
+            .brand .title {
+                font-size: 16px;
             }
 
-            .logo {
-                font-size: 22px;
+            .nav {
+                padding: 12px 16px;
             }
 
-            .card {
-                padding: 20px;
-                max-height: 55vh;
-            }
-
-            .buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .btn {
-                width: 100%;
-                padding: 15px 30px;
-                font-size: 18px;
+            .wrap {
+                margin: 20px auto;
+                padding: 0 12px;
             }
 
             h1 {
-                font-size: 22px;
+                font-size: 24px;
             }
 
             h2 {
                 font-size: 18px;
             }
+
+            .content {
+                padding: 32px 24px;
+            }
+
+            .buttons-container {
+                flex-direction: column;
+                gap: 12px;
+                padding: 20px 24px 24px;
+            }
+
+            .buttons-container button {
+                width: 100%;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="logo">GUARDIAN TOWER DEFENSE</div>
-            <div class="subtitle">Privacy Policy</div>
+    <div class="topbar">
+        <div class="nav">
+            <div class="brand">
+                <div class="logo">🏰 GTD</div>
+                <div class="title">Guardian Tower Defense · Privacy Policy</div>
+            </div>
         </div>
+    </div>
 
-        <div class="lang-selector">
-            <div class="lang-buttons">
-                <button class="lang-btn active" onclick="switchLang('en')">🇬🇧 English</button>
-                <button class="lang-btn" onclick="switchLang('ru')">🇷🇺 Русский</button>
+    <div class="wrap">
+        <div class="lang-selector-block">
+            <div class="lang-picker">
+                <div class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
+                    <span class="flag" id="currentFlag">🌐</span>
+                    <span id="currentLang">Select Language</span>
+                    <span class="caret">▾</span>
+                </div>
+                <div class="lang-menu" id="langMenu" role="menu">
+                    <div class="lang-grid">
+                        <button class="lang-item" data-lang="en">
+                            <span class="flag">🇬🇧</span>
+                            <div>
+                                <div class="lang-name">English</div>
+                                <div class="lang-native">English</div>
+                            </div>
+                        </button>
+                        <button class="lang-item" data-lang="ru">
+                            <span class="flag">🇷🇺</span>
+                            <div>
+                                <div class="lang-name">Russian</div>
+                                <div class="lang-native">Русский</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="card">
-            <!-- English Version -->
-            <div id="en" class="content active">
-                <h1>Privacy Policy</h1>
-                <p class="effective-date">Effective Date: November 10, 2025</p>
-                
+            <!-- ENGLISH VERSION -->
+            <section id="en" class="content active" lang="en">
+                <h1>🏰 Privacy Policy 🏰</h1>
+                <p class="effective-date">⚔️ Effective Date: November 10, 2025 ⚔️</p>
+
                 <h2>🛡️ 1. INFORMATION WE COLLECT</h2>
-                <p>We collect the following information:</p>
+                <p>To provide you with the best gaming experience, we collect the following information:</p>
                 <ul>
-                    <li>Advertising ID (a unique identifier for advertising purposes)</li>
-                    <li>IP address to determine your region and show relevant advertisements</li>
-                    <li>Game progress and achievement data</li>
-                    <li>Technical device information (model, operating system, version)</li>
+                    <li>📱 Advertising ID (a unique identifier for advertising purposes)</li>
+                    <li>🌍 IP address to determine your region and show relevant advertisements</li>
+                    <li>⭐ Game progress and achievement data</li>
+                    <li>📲 Technical device information (model, operating system, version)</li>
                 </ul>
-                
-                <h2>⚔️ 2. USE OF INFORMATION</h2>
+
+                <h2>⚙️ 2. USE OF INFORMATION</h2>
                 <p>The collected information is used for:</p>
                 <ul>
-                    <li>Displaying personalized advertisements</li>
-                    <li>Improving your gaming experience</li>
-                    <li>Analyzing and optimizing the game</li>
-                    <li>Complying with legal requirements</li>
+                    <li>📺 Displaying personalized advertisements</li>
+                    <li>🎮 Improving your gaming experience</li>
+                    <li>📊 Analyzing and optimizing the game</li>
+                    <li>⚖️ Complying with legal requirements</li>
                 </ul>
-                
+
                 <h2>📢 3. ADVERTISING AND PARTNERS</h2>
                 <p>To monetize the game, we use the Appodeal SDK, which may collect and process data to display advertisements.</p>
                 <p>Appodeal Privacy Policy: <a href="https://www.appodeal.com/privacy-policy" target="_blank">https://www.appodeal.com/privacy-policy</a></p>
@@ -392,60 +592,58 @@
                     <li>MyTarget: <a href="https://legal.my.com/us/mytarget/privacy/" target="_blank">Privacy Policy ↗</a></li>
                     <li>Yandex: <a href="https://yandex.com/legal/confidential/" target="_blank">Privacy Policy ↗</a></li>
                 </ul>
-                
+
                 <h2>🔒 4. DATA PROTECTION</h2>
                 <p>We implement technical and organizational measures to protect your data from unauthorized access, disclosure, alteration, or destruction.</p>
-                
-                <h2>👤 5. YOUR RIGHTS (GDPR/CCPA)</h2>
+
+                <h2>✅ 5. YOUR RIGHTS (GDPR/CCPA)</h2>
                 <p>You have the right to:</p>
                 <ul>
-                    <li>Request access to your personal data</li>
-                    <li>Request deletion of your personal data</li>
-                    <li>Opt-out of personalized advertising</li>
-                    <li>Withdraw consent for data processing</li>
+                    <li>📋 Request access to your personal data</li>
+                    <li>🗑️ Request deletion of your personal data</li>
+                    <li>🚫 Opt-out of personalized advertising</li>
+                    <li>↩️ Withdraw consent for data processing</li>
                 </ul>
                 <p>To exercise these rights, please contact us at the email address provided below.</p>
-                
+
                 <h2>👶 6. CHILDREN'S PRIVACY</h2>
                 <p>This game is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately.</p>
-                
+
                 <h2>📝 7. CHANGES TO THIS POLICY</h2>
                 <p>We may update this Privacy Policy from time to time. Any changes will be communicated within the game. Your continued use of the game after changes are posted constitutes your acceptance of the updated policy.</p>
-                
+
                 <h2>📧 8. CONTACT US</h2>
                 <div class="contact">
                     For privacy-related inquiries:<br>
-                    <strong>arni@cococg.com</strong>
+                    <strong>✉️ arni@cococg.com</strong>
                 </div>
-                
-                <div class="note">
-                    ⚠️ By using Guardian Tower Defense, you acknowledge that you have read and understood this Privacy Policy and agree to the collection and processing of your data as described herein.
-                </div>
-            </div>
 
-            <!-- Russian Version -->
-            <div id="ru" class="content">
-                <h1>Политика конфиденциальности</h1>
-                <p class="effective-date">Дата вступления в силу: 10 ноября 2025</p>
-                
+                <p class="note">⚠️ By using Guardian Tower Defense, you acknowledge that you have read and understood this Privacy Policy and agree to the collection and processing of your data as described herein.</p>
+            </section>
+
+            <!-- RUSSIAN VERSION -->
+            <section id="ru" class="content" lang="ru">
+                <h1>🏰 Политика конфиденциальности 🏰</h1>
+                <p class="effective-date">⚔️ Дата вступления в силу: 10 ноября 2025 ⚔️</p>
+
                 <h2>🛡️ 1. КАКУЮ ИНФОРМАЦИЮ МЫ СОБИРАЕМ</h2>
-                <p>Мы собираем следующую информацию:</p>
+                <p>Для обеспечения наилучшего игрового опыта мы собираем следующую информацию:</p>
                 <ul>
-                    <li>Рекламный идентификатор (уникальный идентификатор для рекламных целей)</li>
-                    <li>IP-адрес для определения вашего региона и показа релевантной рекламы</li>
-                    <li>Данные об игровом прогрессе и достижениях</li>
-                    <li>Техническая информация об устройстве (модель, операционная система, версия)</li>
+                    <li>📱 Рекламный идентификатор (уникальный идентификатор для рекламных целей)</li>
+                    <li>🌍 IP-адрес для определения вашего региона и показа релевантной рекламы</li>
+                    <li>⭐ Данные об игровом прогрессе и достижениях</li>
+                    <li>📲 Техническая информация об устройстве (модель, операционная система, версия)</li>
                 </ul>
-                
-                <h2>⚔️ 2. ИСПОЛЬЗОВАНИЕ ИНФОРМАЦИИ</h2>
+
+                <h2>⚙️ 2. ИСПОЛЬЗОВАНИЕ ИНФОРМАЦИИ</h2>
                 <p>Собранная информация используется для:</p>
                 <ul>
-                    <li>Показа персонализированной рекламы</li>
-                    <li>Улучшения вашего игрового опыта</li>
-                    <li>Анализа и оптимизации игры</li>
-                    <li>Соблюдения юридических требований</li>
+                    <li>📺 Показа персонализированной рекламы</li>
+                    <li>🎮 Улучшения вашего игрового опыта</li>
+                    <li>📊 Анализа и оптимизации игры</li>
+                    <li>⚖️ Соблюдения юридических требований</li>
                 </ul>
-                
+
                 <h2>📢 3. РЕКЛАМА И ПАРТНЕРЫ</h2>
                 <p>Для монетизации игры мы используем Appodeal SDK, который может собирать и обрабатывать данные для показа рекламы.</p>
                 <p>Политика конфиденциальности Appodeal: <a href="https://www.appodeal.com/privacy-policy" target="_blank">https://www.appodeal.com/privacy-policy</a></p>
@@ -458,81 +656,120 @@
                     <li>MyTarget: <a href="https://legal.my.com/us/mytarget/privacy/" target="_blank">Политика конфиденциальности ↗</a></li>
                     <li>Yandex: <a href="https://yandex.com/legal/confidential/" target="_blank">Политика конфиденциальности ↗</a></li>
                 </ul>
-                
+
                 <h2>🔒 4. ЗАЩИТА ДАННЫХ</h2>
                 <p>Мы принимаем технические и организационные меры для защиты ваших данных от несанкционированного доступа, раскрытия, изменения или уничтожения.</p>
-                
-                <h2>👤 5. ВАШИ ПРАВА (GDPR/CCPA)</h2>
+
+                <h2>✅ 5. ВАШИ ПРАВА (GDPR/CCPA)</h2>
                 <p>Вы имеете право:</p>
                 <ul>
-                    <li>Запросить доступ к вашим персональным данным</li>
-                    <li>Запросить удаление ваших персональных данных</li>
-                    <li>Отказаться от персонализированной рекламы</li>
-                    <li>Отозвать согласие на обработку данных</li>
+                    <li>📋 Запросить доступ к вашим персональным данным</li>
+                    <li>🗑️ Запросить удаление ваших персональных данных</li>
+                    <li>🚫 Отказаться от персонализированной рекламы</li>
+                    <li>↩️ Отозвать согласие на обработку данных</li>
                 </ul>
                 <p>Для реализации этих прав, пожалуйста, свяжитесь с нами по электронной почте, указанной ниже.</p>
-                
+
                 <h2>👶 6. КОНФИДЕНЦИАЛЬНОСТЬ ДЕТЕЙ</h2>
                 <p>Эта игра не предназначена для детей младше 13 лет. Мы не собираем умышленно личную информацию от детей младше 13 лет. Если вы являетесь родителем или опекуном и считаете, что ваш ребенок предоставил нам личную информацию, пожалуйста, немедленно свяжитесь с нами.</p>
-                
+
                 <h2>📝 7. ИЗМЕНЕНИЯ В ЭТОЙ ПОЛИТИКЕ</h2>
                 <p>Мы можем время от времени обновлять эту Политику конфиденциальности. О любых изменениях будет сообщено в игре. Ваше дальнейшее использование игры после публикации изменений означает ваше согласие с обновленной политикой.</p>
-                
+
                 <h2>📧 8. СВЯЖИТЕСЬ С НАМИ</h2>
                 <div class="contact">
                     По вопросам конфиденциальности:<br>
-                    <strong>arni@cococg.com</strong>
+                    <strong>✉️ arni@cococg.com</strong>
                 </div>
-                
-                <div class="note">
-                    ⚠️ Используя Guardian Tower Defense, вы подтверждаете, что прочитали и поняли эту Политику конфиденциальности, и соглашаетесь на сбор и обработку ваших данных, как описано в этом документе.
-                </div>
-            </div>
-        </div>
 
-        <div class="buttons">
-            <button class="decline-btn" onclick="declinePolicy()">
-                <span id="decline-text">DECLINE</span>
-            </button>
-            <button class="accept-btn" onclick="acceptPolicy()">
-                <span id="accept-text">ACCEPT</span>
-            </button>
+                <p class="note">⚠️ Используя Guardian Tower Defense, вы подтверждаете, что прочитали и поняли эту Политику конфиденциальности, и соглашаетесь на сбор и обработку ваших данных, как описано в этом документе.</p>
+            </section>
+
+            <!-- Кнопки для английского -->
+            <div id="buttons-en" class="buttons-container" data-lang="en" style="display: flex;">
+                <button class="decline-btn" onclick="declinePolicy()">❌ Decline</button>
+                <button class="accept-btn" onclick="acceptPolicy()">✅ Accept</button>
+            </div>
+
+            <!-- Кнопки для русского -->
+            <div id="buttons-ru" class="buttons-container" data-lang="ru" style="display: none;">
+                <button class="decline-btn" onclick="declinePolicy()">❌ Отклонить</button>
+                <button class="accept-btn" onclick="acceptPolicy()">✅ Принять</button>
+            </div>
         </div>
     </div>
 
     <script>
-        let currentLang = 'en';
+        const FLAGS = {
+            en: "🇬🇧",
+            ru: "🇷🇺"
+        };
 
-        function switchLang(lang) {
-            currentLang = lang;
-            
-            // Hide all content
-            document.querySelectorAll('.content').forEach(el => {
-                el.classList.remove('active');
-            });
-            
-            // Show selected content
-            document.getElementById(lang).classList.add('active');
-            
-            // Update button states
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // Update action button texts
-            const texts = {
-                en: { accept: 'ACCEPT', decline: 'DECLINE' },
-                ru: { accept: 'ПРИНЯТЬ', decline: 'ОТКЛОНИТЬ' }
-            };
-            
-            document.getElementById('accept-text').textContent = texts[lang].accept;
-            document.getElementById('decline-text').textContent = texts[lang].decline;
-            
-            // Scroll to top
-            document.querySelector('.card').scrollTop = 0;
+        const LABELS = {
+            en: "English",
+            ru: "Русский"
+        };
+
+        const langBtn = document.getElementById('langBtn');
+        const langMenu = document.getElementById('langMenu');
+        const currentFlag = document.getElementById('currentFlag');
+        const currentLang = document.getElementById('currentLang');
+
+        function openMenu(open) {
+            langMenu.classList.toggle('open', open);
+            langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
         }
 
+        langBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openMenu(!langMenu.classList.contains('open'));
+        });
+
+        document.addEventListener('click', () => openMenu(false));
+        langMenu.addEventListener('click', (e) => e.stopPropagation());
+
+        function detectLanguage() {
+            const saved = localStorage.getItem('preferredLanguage');
+            if (saved && (saved === 'en' || saved === 'ru')) return saved;
+            
+            const nav = navigator.language || navigator.userLanguage || 'en';
+            const code = nav.split('-')[0].toLowerCase();
+            
+            return (code === 'ru') ? 'ru' : 'en';
+        }
+
+        function switchLang(lang) {
+            // Переключаем контент
+            document.querySelectorAll('.content').forEach(s => s.classList.remove('active'));
+            const section = document.getElementById(lang);
+            if (section) {
+                section.classList.add('active');
+                section.scrollTop = 0;
+            }
+
+            // Переключаем кнопки
+            document.querySelectorAll('.buttons-container').forEach(b => {
+                b.style.display = (b.dataset.lang === lang) ? 'flex' : 'none';
+            });
+
+            // Обновляем UI
+            currentFlag.textContent = FLAGS[lang] || '🌐';
+            currentLang.textContent = LABELS[lang] || 'Language';
+            document.documentElement.lang = lang;
+            
+            localStorage.setItem('preferredLanguage', lang);
+            openMenu(false);
+        }
+
+        // Обработчики выбора языка
+        document.querySelectorAll('.lang-item').forEach(btn => {
+            btn.addEventListener('click', () => switchLang(btn.dataset.lang));
+        });
+
+        // Инициализация
+        switchLang(detectLanguage());
+
+        // Функции для кнопок
         function acceptPolicy() {
             console.log('User accepted privacy policy');
             window.location.href = 'privacypolicy://accept';
@@ -563,10 +800,19 @@
             }
         }
 
-        // Auto-scroll to top on load
         window.onload = function() {
-            document.querySelector('.card').scrollTop = 0;
+            const activeContent = document.querySelector('.content.active');
+            if (activeContent) {
+                activeContent.scrollTop = 0;
+            }
         };
     </script>
 </body>
 </html>
+
+							<script>
+                            	
+							</script>
+                        </body>
+                        </html>
+                    
