@@ -1,4 +1,30 @@
-<!DOCTYPE html>
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+							<style>
+								body {
+									background-color: white; /* Ensure the iframe has a white background */
+								}
+
+								font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+@keyframes cardAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+							</style>
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,6 +60,10 @@
             color: var(--text-dark);
             position: relative;
             overflow-x: hidden;
+			/* ФИКС для Android - запрет автомасштабирования */
+			-webkit-text-size-adjust: 100%;
+			-moz-text-size-adjust: 100%;
+			text-size-adjust: 100%;
         }
 
         /* ПРАВКА 7: Облака строго за контентом, фиксированный z-index */
@@ -220,14 +250,14 @@
 
         .wrap {
             max-width: 900px;
-            margin: 30px auto;
+            margin: 12px auto;
             padding: 0 16px;
             position: relative;
             z-index: 1; /* ПРАВКА 7: Контент поверх облаков */
         }
 
         .lang-selector-block {
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -262,7 +292,7 @@
             content: '';
             position: absolute;
             /* ПРАВКА 4: Отступы для скроллбара */
-            inset: 12px; /* Увеличен отступ с 8px до 12px */
+            inset: 6px; /* Увеличен отступ с 8px до 12px */
             border: 2px dashed rgba(139, 69, 19, 0.4);
             border-radius: 16px;
             pointer-events: none;
@@ -272,15 +302,12 @@
         .content {
             position: relative;
             z-index: 1;
-            /* ПРАВКА 2: Padding чтобы текст не заезжал на пунктирную рамку */
-            padding: 40px 32px; /* Увеличен padding */
-            /* ПРАВКА 4: Дополнительный padding справа для скроллбара */
-            padding-right: 40px;
+            padding: 24px 32px; /* Увеличен padding */
+            padding-right: 30px;
             display: none;
             max-height: 60vh;
             overflow-y: auto;
-            /* ПРАВКА 4: Отступ от краев для скроллбара */
-            margin: 8px;
+            margin: 10px 12px 2px 8px;
         }
 
         .content.active {
@@ -311,7 +338,7 @@
 
         /* ПРАВКА 3: Уменьшен размер заголовка для иконок */
         h1 {
-            font-size: 24px; /* Было 32px, стало 24px */
+            font-size: clamp(18px, 5vw, 24px); /* Адаптивный размер от 18px до 24px */
             margin: 0 0 12px;
             font-weight: 900;
             color: var(--text-dark);
@@ -328,13 +355,13 @@
             text-align: center;
             color: var(--text-brown);
             font-style: italic;
-            margin-bottom: 32px;
+            margin-bottom: 16px;
             font-size: 13px;
             font-weight: 600;
         }
 
         h2 {
-            font-size: 20px;
+            font-size: clamp(16px, 4vw, 20px); /* Адаптивный размер от 16px до 20px */
             margin: 32px 0 16px;
             font-weight: 800;
             color: var(--primary-orange);
@@ -348,7 +375,7 @@
             color: var(--text-dark);
             margin: 0 0 16px;
             line-height: 1.8;
-            font-size: 15px;
+            font-size: clamp(13px, 3.5vw, 15px); /* Адаптивный размер от 13px до 15px */
             font-weight: 600;
         }
 
@@ -373,18 +400,36 @@
             text-decoration: underline;
         }
 
-        .contact {
-            margin-top: 28px;
-            padding: 20px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, var(--primary-gold) 0%, #FFE082 100%);
-            border: 3px solid var(--border-dark);
-            box-shadow: 0 4px 0 #5D4037,
-                        0 6px 12px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            font-weight: 800;
-            font-size: 16px;
-        }
+		.contact {
+			margin-top: 28px;
+			padding: 20px;
+			border-radius: 16px;
+			background: linear-gradient(135deg, var(--primary-gold) 0%, #FFE082 100%);
+			border: 3px solid var(--border-dark);
+			box-shadow: 0 4px 0 #5D4037,
+						0 6px 12px rgba(0, 0, 0, 0.3);
+			text-align: center;
+			font-weight: 800;
+			font-size: 16px;
+			/* ДОБАВЛЕНО ДЛЯ КНОПКИ: */
+			display: block;
+			text-decoration: none;
+			color: var(--text-dark);
+			cursor: pointer;
+			transition: all 0.2s;
+		}
+
+		.contact:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 7px 0 #5D4037,
+						0 9px 16px rgba(0, 0, 0, 0.4);
+		}
+
+		.contact:active {
+			transform: translateY(2px);
+			box-shadow: 0 2px 0 #5D4037,
+						0 4px 8px rgba(0, 0, 0, 0.3);
+		}
 
         .note {
             margin-top: 24px;
@@ -400,7 +445,7 @@
             display: flex;
             gap: 16px;
             justify-content: center;
-            padding: 24px 32px 32px;
+            padding: 12px 32px 32px;
             background: rgba(222, 184, 135, 0.3);
             border-top: 3px solid rgba(139, 69, 19, 0.3);
             position: relative;
@@ -463,46 +508,73 @@
                         0 5px 12px rgba(0, 0, 0, 0.4);
         }
 
-        @media (max-width: 720px) {
-            .brand .title {
-                font-size: 15px;
-            }
+		@media (max-width: 720px) {
+			.brand .title {
+				font-size: 14px;
+			}
 
-            .nav {
-                padding: 10px 16px;
-            }
+			.nav {
+				padding: 10px 16px;
+			}
 
-            .wrap {
-                margin: 20px auto;
-                padding: 0 12px;
-            }
+			.wrap {
+				margin: 20px auto;
+				padding: 0 12px;
+			}
 
-            /* ПРАВКА 3: Еще меньше на мобильных */
-            h1 {
-                font-size: 20px;
-            }
+			h1 {
+				font-size: 18px !important; /* Принудительно меньше */
+			}
 
-            h2 {
-                font-size: 17px;
-            }
+			h2 {
+				font-size: 16px !important;
+			}
 
-            .content {
-                padding: 28px 20px;
-                padding-right: 28px;
-            }
+			p, li {
+				font-size: 13px !important;
+			}
 
-            .buttons-container {
-                flex-direction: column;
-                gap: 12px;
-                padding: 20px 24px 24px;
-            }
+			.content {
+				padding: 28px 20px;
+				padding-right: 28px;
+			}
 
-            .buttons-container button {
-                width: 100%;
-                font-size: 16px;
-            }
-        }
-    </style>
+			.buttons-container {
+				flex-direction: column;
+				gap: 12px;
+				padding: 20px 24px 24px;
+			}
+
+			.buttons-container button {
+				width: 100%;
+				font-size: 16px;
+			}
+		}
+
+		/* НОВЫЙ медиа-запрос для ОЧЕНЬ маленьких экранов */
+		@media (max-width: 400px) {
+			h1 {
+				font-size: 16px !important;
+			}
+
+			h2 {
+				font-size: 14px !important;
+			}
+
+			p, li {
+				font-size: 12px !important;
+			}
+
+			.effective-date {
+				font-size: 11px;
+			}
+
+			.contact {
+				font-size: 14px;
+				padding: 16px;
+			}
+		}		
+		    </style>
 </head>
 <body>
     <!-- ПРАВКА 5: Убран блок GTD -->
@@ -600,10 +672,10 @@
                 <p>We may update this Privacy Policy from time to time. Any changes will be communicated within the game. Your continued use of the game after changes are posted constitutes your acceptance of the updated policy.</p>
 
                 <h2>📧 8. CONTACT US</h2>
-                <div class="contact">
-                    For privacy-related inquiries:<br>
-                    <strong>✉️ arni@cococg.com</strong>
-                </div>
+				<a href="mailto:arni@cococg.com" class="contact">
+					For privacy-related inquiries:<br>
+					<strong>✉️ arni@cococg.com</strong>
+				</a>
 
                 <p class="note">⚠️ By using Guardian Tower Defense, you acknowledge that you have read and understood this Privacy Policy and agree to the collection and processing of your data as described herein.</p>
             </section>
@@ -664,24 +736,24 @@
                 <p>Мы можем время от времени обновлять эту Политику конфиденциальности. О любых изменениях будет сообщено в игре. Ваше дальнейшее использование игры после публикации изменений означает ваше согласие с обновленной политикой.</p>
 
                 <h2>📧 8. СВЯЖИТЕСЬ С НАМИ</h2>
-                <div class="contact">
-                    По вопросам конфиденциальности:<br>
-                    <strong>✉️ arni@cococg.com</strong>
-                </div>
+				<a href="mailto:arni@cococg.com" class="contact">
+					По вопросам конфиденциальности:<br>
+					<strong>✉️ arni@cococg.com</strong>
+				</a>
 
                 <p class="note">⚠️ Используя Guardian Tower Defense, вы подтверждаете, что прочитали и поняли эту Политику конфиденциальности, и соглашаетесь на сбор и обработку ваших данных, как описано в этом документе.</p>
             </section>
 
             <!-- Кнопки для английского -->
             <div id="buttons-en" class="buttons-container" data-lang="en" style="display: flex;">
-                <button class="decline-btn" onclick="declinePolicy()">❌ DECLINE</button>
                 <button class="accept-btn" onclick="acceptPolicy()">✅ ACCEPT</button>
+                <button class="decline-btn" onclick="declinePolicy()">❌ DECLINE</button>
             </div>
 
             <!-- Кнопки для русского -->
             <div id="buttons-ru" class="buttons-container" data-lang="ru" style="display: none;">
-                <button class="decline-btn" onclick="declinePolicy()">❌ ОТКЛОНИТЬ</button>
                 <button class="accept-btn" onclick="acceptPolicy()">✅ ПРИНЯТЬ</button>
+                <button class="decline-btn" onclick="declinePolicy()">❌ ОТКЛОНИТЬ</button>
             </div>
         </div>
     </div>
@@ -701,7 +773,7 @@
             oscillator.frequency.value = 800;
             oscillator.type = 'sine';
             
-            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
             gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
             
             oscillator.start(audioContext.currentTime);
@@ -737,7 +809,7 @@
             oscillator.frequency.value = 300;
             oscillator.type = 'sawtooth';
             
-            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
             gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.4);
             
             oscillator.start(audioContext.currentTime);
@@ -879,3 +951,10 @@
     </script>
 </body>
 </html>
+
+							<script>
+                            	
+							</script>
+                        </body>
+                        </html>
+                    
