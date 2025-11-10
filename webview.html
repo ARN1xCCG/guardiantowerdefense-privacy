@@ -42,10 +42,20 @@
             display:flex; align-items:center; gap:10px; white-space:nowrap;
         }
         .brand .logo{
-            width:120px; height:34px; border-radius:10px;
+            /* width:120px; height:34px; ← УДАЛЕНО */
+            padding: 10px 16px; /* ← ДОБАВЛЕНО: внутренние отступы */
+            min-height: 34px; /* ← ДОБАВЛЕНО: минимальная высота */
+            border-radius:10px;
             background: conic-gradient(from 220deg, var(--accent1), var(--accent2), var(--accent1));
             box-shadow:0 6px 24px rgba(124,92,255,.35), inset 0 0 20px rgba(255,255,255,.2);
-            display:grid; place-items:center; color:white; font-weight:900; letter-spacing:.5px;
+            display:inline-flex; /* ← ИЗМЕНЕНО: с grid на inline-flex */
+            align-items: center; /* ← ДОБАВЛЕНО */
+            justify-content: center; /* ← ДОБАВЛЕНО */
+            color:white; 
+            font-weight:900; 
+            letter-spacing:.5px;
+            white-space: nowrap; /* ← ДОБАВЛЕНО: текст в одну строку */
+            font-size: 14px; /* ← ДОБАВЛЕНО: размер текста */
         }
         .brand .title{
             font-weight:800; font-size:16px; letter-spacing:.2px;
@@ -1296,6 +1306,7 @@
     </script>
 </body>
 </html>
+
 
 
 
