@@ -42,7 +42,7 @@
             display:flex; align-items:center; gap:10px; white-space:nowrap;
         }
         .brand .logo{
-            width:34px; height:34px; border-radius:10px;
+            width:50px; height:34px; border-radius:10px;
             background: conic-gradient(from 220deg, var(--accent1), var(--accent2), var(--accent1));
             box-shadow:0 6px 24px rgba(124,92,255,.35), inset 0 0 20px rgba(255,255,255,.2);
             display:grid; place-items:center; color:white; font-weight:900; letter-spacing:.5px;
@@ -214,11 +214,11 @@
             background: linear-gradient(135deg, var(--accent1) 0%, var(--accent2) 100%);
             color: white;
             border: none; /* <-- ИЗМЕНЕНИЕ: Это убирает артефакт рамки */
-            box-shadow: 0 4px 15px rgba(124, 92, 255, 0.3);
+            box-shadow: 0 4px 10px rgba(124, 92, 255, 0.3);
         }
         .accept-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(124, 92, 255, 0.4);
+            box-shadow: 0 6px 10px rgba(124, 92, 255, 0.4);
         }
         
         /* Стили для кнопки "Отклонить" (Новый градиент) */
@@ -227,13 +227,13 @@
             background: linear-gradient(135deg, #F08A5D 0%, #D65A5A 100%); /* Теплый градиент */
             color: white;
             border: none; /* <-- ДОБАВЛЕНО: убираем рамку, как у кнопки "Принять" */
-            box-shadow: 0 4px 15px rgba(214, 90, 90, 0.3); /* Новый 'теплый' оттенок тени */
+            box-shadow: 0 4px 10px rgba(214, 90, 90, 0.3); /* Новый 'теплый' оттенок тени */
         }
         /* Состояние наведения для кнопки "Отклонить" (Новый стиль) */
         .decline-btn:hover {
             /* НОВЫЕ СТИЛИ: */
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(214, 90, 90, 0.4); /* Усиленная 'теплая' тень */
+            box-shadow: 0 6px 10px rgba(214, 90, 90, 0.4); /* Усиленная 'теплая' тень */
             color: white; /* Убедимся, что цвет текста не меняется */
         
             /* СТАРЫЕ СТИЛИ (которые были заменены):
@@ -292,7 +292,7 @@
     <div class="topbar">
         <div class="nav">
             <div class="brand">
-                <div class="logo">GT</div>
+                <div class="logo">CCG</div>
                 <div class="title">Guardian Tower Defense · Privacy Policy</div>
             </div>
         </div>
@@ -1287,6 +1287,7 @@
     </script>
 </body>
 </html>
+
 
 
 
