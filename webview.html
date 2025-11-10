@@ -200,21 +200,29 @@
             padding: 12px 30px;
             font-size: 16px;
             font-weight: bold;
-            border: 1px solid rgba(255,255,255,.12);
+            border: none; /* ← ИЗМЕНЕНО: убрали border полностью */
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s;
             text-transform: uppercase;
             letter-spacing: 1px;
             min-width: 140px;
+            /* ↓ ДОБАВЛЕНО: исправление артефактов рендеринга */
+            outline: none;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            will-change: transform;
+            isolation: isolate;
         }
         
         /* Стили для кнопки "Принять" (Исправлен артефакт) */
         .accept-btn {
             background: linear-gradient(135deg, var(--accent1) 0%, var(--accent2) 100%);
             color: white;
-            border: none; /* <-- ИЗМЕНЕНИЕ: Это убирает артефакт рамки */
+            border: none;
             box-shadow: 0 4px 10px rgba(124, 92, 255, 0.3);
+            background-clip: padding-box; /* ← ДОБАВЛЕНО */
+            border: 1px solid transparent; /* ← ДОБАВЛЕНО: фикс для градиента */
         }
         .accept-btn:hover {
             transform: translateY(-2px);
@@ -223,11 +231,12 @@
         
         /* Стили для кнопки "Отклонить" (Новый градиент) */
         .decline-btn {
-            /* НОВЫЕ СТИЛИ: */
-            background: linear-gradient(135deg, #F08A5D 0%, #D65A5A 100%); /* Теплый градиент */
+            background: linear-gradient(135deg, #F08A5D 0%, #D65A5A 100%);
             color: white;
-            border: none; /* <-- ДОБАВЛЕНО: убираем рамку, как у кнопки "Принять" */
-            box-shadow: 0 4px 10px rgba(214, 90, 90, 0.3); /* Новый 'теплый' оттенок тени */
+            border: none;
+            box-shadow: 0 4px 10px rgba(214, 90, 90, 0.3);
+            background-clip: padding-box; /* ← ДОБАВЛЕНО */
+            border: 1px solid transparent; /* ← ДОБАВЛЕНО: фикс для градиента */
         }
         /* Состояние наведения для кнопки "Отклонить" (Новый стиль) */
         .decline-btn:hover {
@@ -1287,6 +1296,7 @@
     </script>
 </body>
 </html>
+
 
 
 
