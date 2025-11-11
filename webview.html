@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Privacy Policy for Guardian Tower Defense">
     <title>Guardian Tower Defense - Privacy Policy</title>
+    <script type="module" defer>
+        import { polyfillCountryFlagEmojis } from "https://cdn.skypack.dev/country-flag-emoji-polyfill";
+        polyfillCountryFlagEmojis();
+    </script>
     <style>
         * {
             box-sizing: border-box;
@@ -27,7 +31,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: "Twemoji Country Flags", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background: linear-gradient(180deg, #87CEEB 0%, #FFE4B5 50%, #DEB887 100%);
             min-height: 100dvh;
             margin: 0;
@@ -125,7 +129,14 @@
             gap: 10px;
             padding: 10px 24px;
             border-radius: 16px;
-            background: linear-gradient(180deg, #FFE4B5 0%, #DEB887 100%);
+            background: linear-gradient(135deg, 
+                #FFE4B5 0%, 
+                #DEB887 25%, 
+                #D2B48C 50%, 
+                #DEB887 75%, 
+                #FFE4B5 100%);
+            background-size: 200% 200%;
+            animation: shimmer 3s ease infinite;
             border: 3px solid var(--border-dark);
             box-shadow: 0 4px 0 #5D4037,
                         0 6px 12px rgba(0, 0, 0, 0.3);
@@ -135,10 +146,14 @@
             cursor: pointer;
             transition: transform 0.2s;
             width: 100%;
+            position: relative;
+            overflow: hidden;
         }
 
-        .lang-btn:hover {
-            transform: translateY(-2px);
+        @media (hover: hover) {
+            .lang-btn:hover {
+                transform: translateY(-2px);
+            }
         }
 
         .lang-btn:active {
@@ -149,6 +164,7 @@
 
         .flag {
             font-size: 24px;
+            font-family: "Twemoji Country Flags", "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji", sans-serif;
         }
 
         .caret {
@@ -158,7 +174,7 @@
 
         .lang-menu {
             position: absolute;
-            z-index: 150;
+            z-index: 1000;
             left: 0;
             right: 0;
             top: 110%;
@@ -176,13 +192,27 @@
         }
 
         @keyframes slideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.95);
+            }
+            60% {
+                transform: translateY(5px) scale(1.02);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes langItemAppear {
             from {
                 opacity: 0;
-                transform: translateY(-10px);
+                transform: translateX(-20px) scale(0.8);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateX(0) scale(1);
             }
         }
 
@@ -203,13 +233,38 @@
             color: var(--text-dark);
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
         }
 
-        .lang-item:hover {
-            background: var(--primary-gold);
-            border-color: var(--border-dark);
-            transform: scale(1.02);
+        .lang-item > div {
+            text-align: left;
+        }
+
+        .lang-menu.open .lang-item {
+            animation: langItemAppear 0.4s ease forwards;
+        }
+
+        .lang-menu.open .lang-item:nth-child(1) { animation-delay: 0.05s; }
+        .lang-menu.open .lang-item:nth-child(2) { animation-delay: 0.1s; }
+        .lang-menu.open .lang-item:nth-child(3) { animation-delay: 0.15s; }
+        .lang-menu.open .lang-item:nth-child(4) { animation-delay: 0.2s; }
+        .lang-menu.open .lang-item:nth-child(5) { animation-delay: 0.25s; }
+        .lang-menu.open .lang-item:nth-child(6) { animation-delay: 0.3s; }
+        .lang-menu.open .lang-item:nth-child(7) { animation-delay: 0.35s; }
+        .lang-menu.open .lang-item:nth-child(8) { animation-delay: 0.4s; }
+        .lang-menu.open .lang-item:nth-child(9) { animation-delay: 0.45s; }
+        .lang-menu.open .lang-item:nth-child(10) { animation-delay: 0.5s; }
+        .lang-menu.open .lang-item:nth-child(11) { animation-delay: 0.55s; }
+        .lang-menu.open .lang-item:nth-child(12) { animation-delay: 0.6s; }
+
+        @media (hover: hover) {
+            .lang-item:hover {
+                background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+                border-color: var(--border-dark);
+                transform: scale(1.05) translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
         }
 
         .lang-item .flag {
@@ -248,6 +303,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            animation: slideInFromTop 0.5s ease-out;
+        }
+
+        @keyframes slideInFromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .card {
@@ -389,7 +456,14 @@
             margin-top: 28px;
             padding: 20px;
             border-radius: 16px;
-            background: linear-gradient(135deg, var(--primary-gold) 0%, #FFE082 100%);
+            background: linear-gradient(135deg, 
+                #FFD700 0%, 
+                #FFC700 25%, 
+                #FFE082 50%, 
+                #FFC700 75%, 
+                #FFD700 100%);
+            background-size: 200% 200%;
+            animation: shimmer 3s ease infinite;
             border: 3px solid var(--border-dark);
             box-shadow: 0 4px 0 #5D4037,
                         0 6px 12px rgba(0, 0, 0, 0.3);
@@ -401,12 +475,16 @@
             color: var(--text-dark);
             cursor: pointer;
             transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .contact:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 7px 0 #5D4037,
-                        0 9px 16px rgba(0, 0, 0, 0.4);
+        @media (hover: hover) {
+            .contact:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 7px 0 #5D4037,
+                            0 9px 16px rgba(0, 0, 0, 0.4);
+            }
         }
 
         .contact:active {
@@ -453,17 +531,33 @@
         }
 
         .accept-btn {
-            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-orange) 100%);
+            background: linear-gradient(135deg, 
+                #FFD700 0%, 
+                #FFA500 25%, 
+                #FF8C00 50%, 
+                #FFA500 75%, 
+                #FFD700 100%);
+            background-size: 200% 200%;
+            animation: shimmer 3s ease infinite;
             color: #FFF;
             box-shadow: 0 6px 0 #B8860B,
                         0 8px 16px rgba(0, 0, 0, 0.4);
             text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
         }
 
-        .accept-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 9px 0 #B8860B,
-                        0 11px 20px rgba(0, 0, 0, 0.5);
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @media (hover: hover) {
+            .accept-btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 9px 0 #B8860B,
+                            0 11px 20px rgba(0, 0, 0, 0.5);
+            }
         }
 
         .accept-btn:active {
@@ -473,22 +567,33 @@
         }
 
         .decline-btn {
-            background: linear-gradient(135deg, var(--button-decline) 0%, var(--button-decline-dark) 100%);
+            background: linear-gradient(135deg, 
+                #8B4513 0%, 
+                #A0522D 25%, 
+                #CD853F 50%, 
+                #A0522D 75%, 
+                #8B4513 100%);
+            background-size: 200% 200%;
+            animation: shimmer 3s ease infinite;
             color: #FFF;
-            box-shadow: 0 6px 0 #A0522D,
+            box-shadow: 0 6px 0 #654321,
                         0 8px 16px rgba(0, 0, 0, 0.4);
             text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
         }
 
-        .decline-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 9px 0 #A0522D,
-                        0 11px 20px rgba(0, 0, 0, 0.5);
+        @media (hover: hover) {
+            .decline-btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 9px 0 #654321,
+                            0 11px 20px rgba(0, 0, 0, 0.5);
+            }
         }
 
         .decline-btn:active {
             transform: translateY(3px);
-            box-shadow: 0 3px 0 #A0522D,
+            box-shadow: 0 3px 0 #654321,
                         0 5px 12px rgba(0, 0, 0, 0.4);
         }
 
@@ -4315,7 +4420,6 @@
             langMenu.classList.toggle('open', open);
             langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
             if (open) playClickSound();
-            langBtn.style.transform = 'translateY(0)';
         }
 
         langBtn.addEventListener('click', (e) => {
@@ -4331,19 +4435,35 @@
             if (saved && (saved === 'en' || saved === 'ru' || saved === 'zh' || saved === 'ja' || saved === 'es' || saved === 'pt' || saved === 'de' || saved === 'fr' || saved === 'it' || saved === 'ko' || saved === 'id' || saved === 'ar')) return saved;
             
             const nav = navigator.language || navigator.userLanguage || 'en';
-            const code = nav.split('-')[0].toLowerCase();
+            const fullCode = nav.toLowerCase();
+            const shortCode = fullCode.split('-')[0];
             
-            if (code === 'ru') return 'ru';
-            if (code === 'zh') return 'zh';
-            if (code === 'ja') return 'ja';
-            if (code === 'es') return 'es';
-            if (code === 'pt') return 'pt';
-            if (code === 'de') return 'de';
-            if (code === 'fr') return 'fr';
-            if (code === 'it') return 'it';
-            if (code === 'ko') return 'ko';
-            if (code === 'id') return 'id';
-            if (code === 'ar') return 'ar';
+            // Сначала проверяем полный код (например, de-DE для Германии)
+            if (fullCode.startsWith('de')) return 'de';
+            if (fullCode.startsWith('fr')) return 'fr';
+            if (fullCode.startsWith('it')) return 'it';
+            if (fullCode.startsWith('es')) return 'es';
+            if (fullCode.startsWith('pt')) return 'pt';
+            if (fullCode.startsWith('ru')) return 'ru';
+            if (fullCode.startsWith('zh')) return 'zh';
+            if (fullCode.startsWith('ja')) return 'ja';
+            if (fullCode.startsWith('ko')) return 'ko';
+            if (fullCode.startsWith('id')) return 'id';
+            if (fullCode.startsWith('ar')) return 'ar';
+            
+            // Fallback на короткий код
+            if (shortCode === 'de') return 'de';
+            if (shortCode === 'fr') return 'fr';
+            if (shortCode === 'it') return 'it';
+            if (shortCode === 'es') return 'es';
+            if (shortCode === 'pt') return 'pt';
+            if (shortCode === 'ru') return 'ru';
+            if (shortCode === 'zh') return 'zh';
+            if (shortCode === 'ja') return 'ja';
+            if (shortCode === 'ko') return 'ko';
+            if (shortCode === 'id') return 'id';
+            if (shortCode === 'ar') return 'ar';
+            
             return 'en';
         }
 
