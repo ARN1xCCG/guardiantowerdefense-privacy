@@ -1,30 +1,4 @@
-
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-							<style>
-								body {
-									background-color: white; /* Ensure the iframe has a white background */
-								}
-
-								font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-
-@keyframes cardAppear {
-    0% {
-        opacity: 0;
-        transform: translateY(30px) scale(0.95);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-							</style>
-                        </head>
-                        <body>
-                            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -53,20 +27,22 @@
         }
 
         body {
-            /* ПРАВКА 6: Универсальный системный шрифт для всех платформ */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background: linear-gradient(180deg, #87CEEB 0%, #FFE4B5 50%, #DEB887 100%);
-            min-height: 100vh;
+            min-height: 100dvh;
+            margin: 0;
+            padding: 0;
             color: var(--text-dark);
             position: relative;
             overflow-x: hidden;
-			/* ФИКС для Android - запрет автомасштабирования */
-			-webkit-text-size-adjust: 100%;
-			-moz-text-size-adjust: 100%;
-			text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            -moz-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            height: 100dvh;
         }
 
-        /* ПРАВКА 7: Облака строго за контентом, фиксированный z-index */
         body::before {
             content: '';
             position: fixed;
@@ -78,7 +54,7 @@
             border-radius: 100px;
             opacity: 0.5;
             animation: float 20s infinite;
-            z-index: 0; /* ВАЖНО: облака за всем контентом */
+            z-index: 0;
             pointer-events: none;
         }
 
@@ -93,7 +69,7 @@
             border-radius: 120px;
             opacity: 0.5;
             animation: float 25s infinite reverse;
-            z-index: 0; /* ВАЖНО: облака за всем контентом */
+            z-index: 0;
             pointer-events: none;
         }
 
@@ -102,7 +78,6 @@
             50% { transform: translateX(calc(100vw + 200px)) translateY(-20px); }
         }
 
-        /* ПРАВКА 5: Компактный хедер без блока GTD */
         .topbar {
             position: sticky;
             top: 0;
@@ -116,7 +91,7 @@
         .nav {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 12px 20px; /* Уменьшен padding для компактности */
+            padding: 66px 20px 12px; /* 66px сверху (текст внизу), 20px по бокам, 12px снизу */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -128,7 +103,6 @@
             justify-content: center;
         }
 
-        /* ПРАВКА 5: Только текст, без блока GTD */
         .brand .title {
             font-weight: 900;
             font-size: 18px;
@@ -138,7 +112,6 @@
             text-align: center;
         }
 
-        /* ПРАВКА 1: Уменьшена высота кнопки языка */
         .lang-picker {
             position: relative;
             width: 100%;
@@ -150,8 +123,7 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            /* ПРАВКА 1: Здесь меняется высота кнопки - уменьшен padding по Y */
-            padding: 8px 20px; /* Было 12px, стало 8px */
+            padding: 8px 20px;
             border-radius: 16px;
             background: linear-gradient(180deg, #FFE4B5 0%, #DEB887 100%);
             border: 3px solid var(--border-dark);
@@ -248,13 +220,20 @@
             color: var(--text-brown);
         }
 
-		.wrap {
-			max-width: 900px;
-			margin: 6px auto !important; /* Принудительно */
-			padding: 0 16px;
-			position: relative;
-			z-index: 1;
-		}
+        .wrap {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 6px 16px; /* 6px сверху, 16px по бокам, 20px снизу */
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 6px;
+            /* НАСТРОЙКА ВЫСОТЫ: измените 120px = высота хедера + отступ снизу */
+            height: calc(100dvh - 120px); /* 100px хедер + 20px отступ снизу */
+            box-sizing: border-box;
+        }
 
         .lang-selector-block {
             margin-bottom: 10px;
@@ -271,11 +250,14 @@
             box-shadow: 0 8px 0 #5D4037,
                         0 12px 24px rgba(0, 0, 0, 0.4);
             overflow: hidden;
-            /* ПРАВКА 8: Анимация появления */
             animation: cardAppear 0.6s ease-out;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 400px;
+            max-height: calc(100% - 10px);
         }
 
-        /* ПРАВКА 8: Анимация появления карточки */
         @keyframes cardAppear {
             0% {
                 opacity: 0;
@@ -287,34 +269,32 @@
             }
         }
 
-        /* ПРАВКА 2 и 4: Пунктирная рамка с правильными отступами */
         .card::before {
             content: '';
             position: absolute;
-            /* ПРАВКА 4: Отступы для скроллбара */
-            inset: 6px; /* Увеличен отступ с 8px до 12px */
+            inset: 6px;
             border: 2px dashed rgba(139, 69, 19, 0.4);
             border-radius: 16px;
             pointer-events: none;
-            z-index: 2; /* Поверх контента, но под скроллбаром */
+            z-index: 2;
         }
 
         .content {
             position: relative;
             z-index: 1;
-            padding: 24px 32px; /* Увеличен padding */
+            padding: 24px 32px;
             padding-right: 30px;
             display: none;
-            max-height: 57vh;
+            flex: 1 1 auto;
             overflow-y: auto;
             margin: 10px 12px 2px 8px;
+            min-height: 0;
         }
 
         .content.active {
             display: block;
         }
 
-        /* ПРАВКА 4: Скроллбар за пунктирными точками с отступами */
         .content::-webkit-scrollbar {
             width: 10px;
         }
@@ -322,7 +302,6 @@
         .content::-webkit-scrollbar-track {
             background: rgba(139, 69, 19, 0.15);
             border-radius: 10px;
-            /* ПРАВКА 4: Отступы сверху и снизу */
             margin: 12px 0;
         }
 
@@ -336,17 +315,15 @@
             background: linear-gradient(180deg, var(--primary-orange), var(--primary-gold));
         }
 
-        /* ПРАВКА 3: Уменьшен размер заголовка для иконок */
         h1 {
-            font-size: clamp(20px, 5vw, 24px); /* Адаптивный размер от 18px до 24px */
+            font-size: clamp(20px, 5vw, 24px);
             margin: 0 0 12px;
             font-weight: 900;
             color: var(--text-dark);
             text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px; /* Уменьшен с 2px */
+            text-transform: none;
+            letter-spacing: 1px;
             text-shadow: 2px 2px 0 rgba(255, 215, 0, 0.3);
-            /* Обеспечиваем перенос если очень узко */
             word-wrap: break-word;
             line-height: 1.3;
         }
@@ -361,7 +338,7 @@
         }
 
         h2 {
-            font-size: clamp(18px, 4vw, 20px); /* Адаптивный размер от 16px до 20px */
+            font-size: clamp(18px, 4vw, 20px);
             margin: 32px 0 16px;
             font-weight: 800;
             color: var(--primary-orange);
@@ -375,7 +352,7 @@
             color: var(--text-dark);
             margin: 0 0 16px;
             line-height: 1.8;
-            font-size: clamp(13px, 3.5vw, 15px); /* Адаптивный размер от 13px до 15px */
+            font-size: clamp(13px, 3.5vw, 15px);
             font-weight: 600;
         }
 
@@ -400,36 +377,35 @@
             text-decoration: underline;
         }
 
-		.contact {
-			margin-top: 28px;
-			padding: 20px;
-			border-radius: 16px;
-			background: linear-gradient(135deg, var(--primary-gold) 0%, #FFE082 100%);
-			border: 3px solid var(--border-dark);
-			box-shadow: 0 4px 0 #5D4037,
-						0 6px 12px rgba(0, 0, 0, 0.3);
-			text-align: center;
-			font-weight: 800;
-			font-size: 16px;
-			/* ДОБАВЛЕНО ДЛЯ КНОПКИ: */
-			display: block;
-			text-decoration: none;
-			color: var(--text-dark);
-			cursor: pointer;
-			transition: all 0.2s;
-		}
+        .contact {
+            margin-top: 28px;
+            padding: 20px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, #FFE082 100%);
+            border: 3px solid var(--border-dark);
+            box-shadow: 0 4px 0 #5D4037,
+                        0 6px 12px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            font-weight: 800;
+            font-size: 16px;
+            display: block;
+            text-decoration: none;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
 
-		.contact:hover {
-			transform: translateY(-3px);
-			box-shadow: 0 7px 0 #5D4037,
-						0 9px 16px rgba(0, 0, 0, 0.4);
-		}
+        .contact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 0 #5D4037,
+                        0 9px 16px rgba(0, 0, 0, 0.4);
+        }
 
-		.contact:active {
-			transform: translateY(2px);
-			box-shadow: 0 2px 0 #5D4037,
-						0 4px 8px rgba(0, 0, 0, 0.3);
-		}
+        .contact:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #5D4037,
+                        0 4px 8px rgba(0, 0, 0, 0.3);
+        }
 
         .note {
             margin-top: 24px;
@@ -450,6 +426,7 @@
             border-top: 3px solid rgba(139, 69, 19, 0.3);
             position: relative;
             z-index: 3;
+            flex-shrink: 0;
         }
 
         .buttons-container button {
@@ -465,7 +442,6 @@
             min-width: 150px;
             position: relative;
             border: 3px solid #FFF;
-            /* ПРАВКА 9: Добавлен класс для звуков */
         }
 
         .accept-btn {
@@ -507,84 +483,202 @@
             box-shadow: 0 3px 0 #A0522D,
                         0 5px 12px rgba(0, 0, 0, 0.4);
         }
-		
-		@media (max-width: 720px) {
-			.wrap {
-				margin: 8px auto 4px auto; !important;
-				padding: 0 12px;
-			}
-}		
 
-		@media (max-width: 720px) {
-			.brand .title {
-				font-size: 14px;
-			}
+        @media (max-width: 720px) and (min-height: 601px) {
+            .brand .title {
+                font-size: 14px;
+            }
 
-			.nav {
-				padding: 10px 16px;
-			}
+            .nav {
+                padding: 50px 16px 10px; /* 50px сверху (текст внизу), 16px по бокам, 10px снизу */
+            }
 
-			.wrap {
-				margin: 20px auto;
-				padding: 0 12px;
-			}
+            .wrap {
+                /* НАСТРОЙКА для мобильных: 78px хедер + 20px отступ снизу */
+                height: calc(100dvh - 88px); /* 78px хедер (50+14+10+4) + 20px отступ = 98px */
+                padding: 10px 12px; /* 10px сверху, 12px по бокам */
+            }
 
-			h1 {
-				font-size: 20px !important; /* Принудительно меньше */
-			}
+            h1 {
+                font-size: 20px !important;
+            }
 
-			h2 {
-				font-size: 18px !important;
-			}
+            h2 {
+                font-size: 18px !important;
+            }
 
-			p, li {
-				font-size: 13px !important;
-			}
+            p, li {
+                font-size: 13px !important;
+            }
 
-			.content {
-				padding: 24px 20px;
-				padding-right: 28px;
-			}
+            .content {
+                padding: 24px 20px;
+                padding-right: 28px;
+            }
 
-			.buttons-container {
-				flex-direction: column;
-				gap: 12px;
-				padding: 10px 24px 24px;
-			}
+            .buttons-container {
+                flex-direction: column;
+                gap: 12px;
+                padding: 10px 24px 24px;
+            }
 
-			.buttons-container button {
-				width: 100%;
-				font-size: 16px;
-			}
-		}
+            .buttons-container button {
+                width: 100%;
+                font-size: 16px;
+            }
+        }
 
-		/* НОВЫЙ медиа-запрос для ОЧЕНЬ маленьких экранов */
-		@media (max-width: 400px) {
-			h1 {
-				font-size: 16px !important;
-			}
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 16px !important;
+            }
 
-			h2 {
-				font-size: 14px !important;
-			}
+            h2 {
+                font-size: 14px !important;
+            }
 
-			p, li {
-				font-size: 12px !important;
-			}
+            p, li {
+                font-size: 12px !important;
+            }
 
-			.effective-date {
-				font-size: 11px;
-			}
+            .effective-date {
+                font-size: 11px;
+            }
 
-			.contact {
-				font-size: 14px;
-				padding: 16px;
-			}
-		}		
-		    </style>
+            .contact {
+                font-size: 14px;
+                padding: 16px;
+            }
+        }
+
+        /* Медиа-запрос для ОЧЕНЬ маленьких экранов (iPhone 5/SE и подобные) */
+        @media (max-height: 600px) {
+            .topbar {
+                /* Уменьшаем тень и границу */
+                border-bottom: 2px solid #3E2723;
+                box-shadow: 0 2px 4px var(--shadow-color);
+            }
+
+            .nav {
+                /* Минимальная высота хедера ~45px */
+                padding: 20px 16px 8px;
+            }
+
+            .brand .title {
+                font-size: 12px;
+            }
+
+            .wrap {
+                /* 45px хедер + 20px отступ = 65px */ 
+                height: calc(100dvh - 50px);
+                padding: 4px 10px; /* Меньше отступы */
+                gap: 3px; /* Меньше расстояние между элементами */
+            }
+
+            .lang-selector-block {
+                margin-bottom: 4px;
+            }
+
+            .lang-btn {
+                padding: 4px 12px;
+                font-size: 12px;
+                border-radius: 10px;
+                border: 2px solid var(--border-dark);
+                box-shadow: 0 2px 0 #5D4037, 0 3px 6px rgba(0, 0, 0, 0.2);
+            }
+
+            .flag {
+                font-size: 18px;
+            }
+
+            .card {
+                border: 2px solid var(--border-dark);
+                border-radius: 12px;
+                box-shadow: 0 4px 0 #5D4037, 0 6px 12px rgba(0, 0, 0, 0.3);
+                min-height: 250px; /* Меньше минимальная высота */
+            }
+
+            h1 {
+                font-size: 16px !important;
+                margin: 0 0 8px;
+            }
+
+            h2 {
+                font-size: 14px !important;
+                margin: 20px 0 10px;
+            }
+
+            p, li {
+                font-size: 11px !important;
+                line-height: 1.5;
+            }
+
+            .effective-date {
+                font-size: 10px;
+                margin-bottom: 10px;
+            }
+
+            .content {
+                padding: 16px 16px;
+                padding-right: 20px;
+                margin: 5px 8px 2px 5px;
+            }
+
+            /* КНОПКИ ГОРИЗОНТАЛЬНО! */
+            .buttons-container {
+                flex-direction: row !important; /* Всегда горизонтально на маленьких экранах */
+                gap: 8px;
+                padding: 4px 16px 16px;
+                border-top: 2px solid rgba(139, 69, 19, 0.2);
+            }
+
+            .buttons-container button {
+                width: auto !important; /* Не на всю ширину */
+                flex: 1; /* Равномерно распределяем */
+                min-width: 0; /* Убираем ограничение */
+                padding: 8px 16px;
+                font-size: 14px !important;
+                border-radius: 10px;
+                border: 2px solid #FFF;
+            }
+
+            .accept-btn {
+                box-shadow: 0 3px 0 #B8860B, 0 4px 8px rgba(0, 0, 0, 0.3);
+            }
+
+            .decline-btn {
+                box-shadow: 0 3px 0 #A0522D, 0 4px 8px rgba(0, 0, 0, 0.3);
+            }
+
+            .accept-btn:hover, .decline-btn:hover {
+                transform: translateY(-1px);
+            }
+
+            .accept-btn:active, .decline-btn:active {
+                transform: translateY(1px);
+                box-shadow: 0 1px 0 #B8860B, 0 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+            .contact {
+                font-size: 12px;
+                padding: 12px;
+                margin-top: 16px;
+            }
+
+            .note {
+                font-size: 10px;
+                margin-top: 16px;
+                padding-top: 12px;
+            }
+
+            /* Уменьшаем скроллбар */
+            .content::-webkit-scrollbar {
+                width: 6px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- ПРАВКА 5: Убран блок GTD -->
     <div class="topbar">
         <div class="nav">
             <div class="brand">
@@ -679,10 +773,10 @@
                 <p>We may update this Privacy Policy from time to time. Any changes will be communicated within the game. Your continued use of the game after changes are posted constitutes your acceptance of the updated policy.</p>
 
                 <h2>📧 8. CONTACT US</h2>
-				<a href="mailto:arni@cococg.com" class="contact">
-					For privacy-related inquiries:<br>
-					<strong>✉️ arni@cococg.com</strong>
-				</a>
+                <a href="mailto:arni@cococg.com" class="contact">
+                    For privacy-related inquiries:<br>
+                    <strong>✉️ arni@cococg.com</strong>
+                </a>
 
                 <p class="note">⚠️ By using Guardian Tower Defense, you acknowledge that you have read and understood this Privacy Policy and agree to the collection and processing of your data as described herein.</p>
             </section>
@@ -743,10 +837,10 @@
                 <p>Мы можем время от времени обновлять эту Политику конфиденциальности. О любых изменениях будет сообщено в игре. Ваше дальнейшее использование игры после публикации изменений означает ваше согласие с обновленной политикой.</p>
 
                 <h2>📧 8. СВЯЖИТЕСЬ С НАМИ</h2>
-				<a href="mailto:arni@cococg.com" class="contact">
-					По вопросам конфиденциальности:<br>
-					<strong>✉️ arni@cococg.com</strong>
-				</a>
+                <a href="mailto:arni@cococg.com" class="contact">
+                    По вопросам конфиденциальности:<br>
+                    <strong>✉️ arni@cococg.com</strong>
+                </a>
 
                 <p class="note">⚠️ Используя Guardian Tower Defense, вы подтверждаете, что прочитали и поняли эту Политику конфиденциальности, и соглашаетесь на сбор и обработку ваших данных, как описано в этом документе.</p>
             </section>
@@ -766,10 +860,8 @@
     </div>
 
     <script>
-        /* ПРАВКА 9: Звуковые эффекты через Web Audio API */
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-        // Функция для создания звука успеха (Accept)
         function playSuccessSound() {
             const oscillator = audioContext.createOscillator();
             const gainNode = audioContext.createGain();
@@ -786,7 +878,6 @@
             oscillator.start(audioContext.currentTime);
             oscillator.stop(audioContext.currentTime + 0.3);
             
-            // Второй тон для гармонии
             setTimeout(() => {
                 const osc2 = audioContext.createOscillator();
                 const gain2 = audioContext.createGain();
@@ -805,7 +896,6 @@
             }, 100);
         }
 
-        // Функция для создания звука отказа (Decline)
         function playDeclineSound() {
             const oscillator = audioContext.createOscillator();
             const gainNode = audioContext.createGain();
@@ -824,7 +914,6 @@
             oscillator.stop(audioContext.currentTime + 0.4);
         }
 
-        // Звук клика для кнопки языка
         function playClickSound() {
             const oscillator = audioContext.createOscillator();
             const gainNode = audioContext.createGain();
@@ -860,9 +949,8 @@
         function openMenu(open) {
             langMenu.classList.toggle('open', open);
             langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-            if (open) playClickSound(); // Звук при открытии меню
-			    // Сброс transform для фикса залипания
-			langBtn.style.transform = 'translateY(0)';
+            if (open) playClickSound();
+            langBtn.style.transform = 'translateY(0)';
         }
 
         langBtn.addEventListener('click', (e) => {
@@ -884,7 +972,7 @@
         }
 
         function switchLang(lang) {
-            playClickSound(); // Звук при смене языка
+            playClickSound();
             
             document.querySelectorAll('.content').forEach(s => s.classList.remove('active'));
             const section = document.getElementById(lang);
@@ -911,12 +999,10 @@
 
         switchLang(detectLanguage());
 
-        /* ПРАВКА 9: Функции с звуками */
         function acceptPolicy() {
-            playSuccessSound(); // Звук успеха
+            playSuccessSound();
             console.log('User accepted privacy policy');
             
-            // Небольшая задержка перед переходом для проигрывания звука
             setTimeout(() => {
                 window.location.href = 'privacypolicy://accept';
             }, 300);
@@ -933,7 +1019,7 @@
         }
 
         function declinePolicy() {
-            playDeclineSound(); // Звук отказа
+            playDeclineSound();
             console.log('User declined privacy policy');
             
             setTimeout(() => {
@@ -960,10 +1046,3 @@
     </script>
 </body>
 </html>
-
-							<script>
-                            	
-							</script>
-                        </body>
-                        </html>
-                    
