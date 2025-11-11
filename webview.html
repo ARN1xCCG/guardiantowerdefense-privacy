@@ -495,12 +495,28 @@
 
             .wrap {
                 /* НАСТРОЙКА для мобильных: 78px хедер + 20px отступ снизу */
-                height: calc(100dvh - 88px); /* 78px хедер (50+14+10+4) + 20px отступ = 98px */
+                height: calc(100dvh - 98px); /* 78px хедер (50+14+10+4) + 20px отступ = 98px */
                 padding: 10px 12px; /* 10px сверху, 12px по бокам */
             }
 
             h1 {
                 font-size: 20px !important;
+            }
+
+            .content::-webkit-scrollbar {
+                width: 10px;
+            }
+
+            .content::-webkit-scrollbar-track {
+                background: rgba(139, 69, 19, 0.15);
+                border-radius: 10px;
+                margin: 12px 0;
+            }
+
+            .content::-webkit-scrollbar-thumb {
+                background: linear-gradient(180deg, var(--primary-gold), var(--primary-orange));
+                border-radius: 10px;
+                border: 2px solid #FFF8DC;
             }
 
             h2 {
@@ -570,7 +586,7 @@
 
             .wrap {
                 /* 45px хедер + 20px отступ = 65px */ 
-                height: calc(100dvh - 50px);
+                height: calc(100dvh - 65px);
                 padding: 4px 10px; /* Меньше отступы */
                 gap: 3px; /* Меньше расстояние между элементами */
             }
@@ -892,7 +908,7 @@
                 
                 // Резкая атака и медленное затухание как у колокола
                 gain.gain.setValueAtTime(0, now);
-                gain.gain.linearRampToValueAtTime(harmonic.gain * 0.15, now + 0.01); // Быстрая атака
+                gain.gain.linearRampToValueAtTime(harmonic.gain * 0.02, now + 0.01); // Быстрая атака
                 gain.gain.exponentialRampToValueAtTime(0.001, now + harmonic.decay);
                 
                 osc.start(now);
@@ -942,7 +958,7 @@
             drumFilter.Q.value = 2;
             
             // Глухой удар с быстрым затуханием
-            drumGain.gain.setValueAtTime(0.3, now);
+            drumGain.gain.setValueAtTime(0.1, now);
             drumGain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
             
             drum.frequency.exponentialRampToValueAtTime(40, now + 0.2);
@@ -1003,7 +1019,7 @@
             filter.Q.value = 10;
             
             // Очень короткий резкий звук
-            gain.gain.setValueAtTime(0.15, now);
+            gain.gain.setValueAtTime(0.02, now);
             gain.gain.exponentialRampToValueAtTime(0.001, now + 0.01);
             
             noise.start(now);
