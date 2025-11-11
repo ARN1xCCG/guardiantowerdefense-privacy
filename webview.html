@@ -636,10 +636,14 @@
                 width: auto !important; /* Не на всю ширину */
                 flex: 1; /* Равномерно распределяем */
                 min-width: 0; /* Убираем ограничение */
-                padding: 8px 16px;
-                font-size: 14px !important;
+                padding: 8px 12px;
+                font-size: 11px !important; /* Меньше шрифт для маленьких экранов */
                 border-radius: 10px;
                 border: 2px solid #FFF;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                letter-spacing: 0.5px;
             }
 
             .accept-btn {
@@ -783,7 +787,7 @@
 
             <!-- RUSSIAN VERSION -->
             <section id="ru" class="content" lang="ru">
-                <h1>🏰 Политика кондфиденциальности 🏰</h1>
+                <h1>Политика кондфиденциальности</h1>
                 <p class="effective-date">⚔️ Дата вступления в силу: 10 ноября 2025 ⚔️</p>
 
                 <h2>🛡️ 1. КАКУЮ ИНФОРМАЦИЮ МЫ СОБИРАЕМ</h2>
@@ -862,73 +866,164 @@
     <script>
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
+        // Средневековый церковный колокол - для принятия
         function playSuccessSound() {
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
+            const now = audioContext.currentTime;
             
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
+            // Основной тон колокола (фундаментальная частота)
+            const fundamental = 523.25; // C5
+            const harmonics = [
+                { freq: fundamental, gain: 0.5, decay: 2.0 },      // Основной тон
+                { freq: fundamental * 2, gain: 0.3, decay: 1.5 },  // Октава
+                { freq: fundamental * 3, gain: 0.2, decay: 1.0 },  // Квинта
+                { freq: fundamental * 4.2, gain: 0.15, decay: 0.8 }, // Негармоничная частота (характерно для колокола)
+                { freq: fundamental * 5.4, gain: 0.1, decay: 0.6 }   // Еще одна негармоничная
+            ];
             
-            oscillator.frequency.value = 800;
-            oscillator.type = 'sine';
-            
-            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-            
-            oscillator.start(audioContext.currentTime);
-            oscillator.stop(audioContext.currentTime + 0.3);
-            
-            setTimeout(() => {
-                const osc2 = audioContext.createOscillator();
-                const gain2 = audioContext.createGain();
+            harmonics.forEach((harmonic, index) => {
+                const osc = audioContext.createOscillator();
+                const gain = audioContext.createGain();
                 
-                osc2.connect(gain2);
-                gain2.connect(audioContext.destination);
+                osc.frequency.value = harmonic.freq;
+                osc.type = 'sine';
                 
-                osc2.frequency.value = 1000;
-                osc2.type = 'sine';
+                osc.connect(gain);
+                gain.connect(audioContext.destination);
                 
-                gain2.gain.setValueAtTime(0.2, audioContext.currentTime);
-                gain2.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+                // Резкая атака и медленное затухание как у колокола
+                gain.gain.setValueAtTime(0, now);
+                gain.gain.linearRampToValueAtTime(harmonic.gain * 0.15, now + 0.01); // Быстрая атака
+                gain.gain.exponentialRampToValueAtTime(0.001, now + harmonic.decay);
                 
-                osc2.start(audioContext.currentTime);
-                osc2.stop(audioContext.currentTime + 0.2);
-            }, 100);
+                osc.start(now);
+                osc.stop(now + harmonic.decay);
+            });
+            
+            // Добавляем металлический "удар" в начале
+            const strike = audioContext.createOscillator();
+            const strikeGain = audioContext.createGain();
+            const strikeFilter = audioContext.createBiquadFilter();
+            
+            strike.type = 'square';
+            strike.frequency.value = 2500;
+            
+            strike.connect(strikeFilter);
+            strikeFilter.connect(strikeGain);
+            strikeGain.connect(audioContext.destination);
+            
+            strikeFilter.type = 'highpass';
+            strikeFilter.frequency.value = 2000;
+            
+            strikeGain.gain.setValueAtTime(0.05, now);
+            strikeGain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+            
+            strike.start(now);
+            strike.stop(now + 0.05);
         }
 
+        // Средневековый барабан/набат - для отклонения
         function playDeclineSound() {
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
+            const now = audioContext.currentTime;
             
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
+            // Низкочастотный удар барабана
+            const drum = audioContext.createOscillator();
+            const drumGain = audioContext.createGain();
+            const drumFilter = audioContext.createBiquadFilter();
             
-            oscillator.frequency.value = 300;
-            oscillator.type = 'sawtooth';
+            drum.type = 'triangle';
+            drum.frequency.value = 80; // Низкая частота
             
-            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.4);
+            drum.connect(drumFilter);
+            drumFilter.connect(drumGain);
+            drumGain.connect(audioContext.destination);
             
-            oscillator.start(audioContext.currentTime);
-            oscillator.frequency.exponentialRampToValueAtTime(150, audioContext.currentTime + 0.4);
-            oscillator.stop(audioContext.currentTime + 0.4);
+            drumFilter.type = 'lowpass';
+            drumFilter.frequency.value = 200;
+            drumFilter.Q.value = 2;
+            
+            // Глухой удар с быстрым затуханием
+            drumGain.gain.setValueAtTime(0.3, now);
+            drumGain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+            
+            drum.frequency.exponentialRampToValueAtTime(40, now + 0.2);
+            
+            drum.start(now);
+            drum.stop(now + 0.3);
+            
+            // Добавляем "шлепок" мембраны
+            const slap = audioContext.createOscillator();
+            const slapGain = audioContext.createGain();
+            const slapFilter = audioContext.createBiquadFilter();
+            
+            slap.type = 'sawtooth';
+            slap.frequency.value = 200;
+            
+            slap.connect(slapFilter);
+            slapFilter.connect(slapGain);
+            slapGain.connect(audioContext.destination);
+            
+            slapFilter.type = 'bandpass';
+            slapFilter.frequency.value = 300;
+            slapFilter.Q.value = 5;
+            
+            slapGain.gain.setValueAtTime(0.1, now);
+            slapGain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+            
+            slap.start(now);
+            slap.stop(now + 0.1);
         }
 
+        // Деревянный щелчок (как деревянные четки или кастаньеты) - для клика
         function playClickSound() {
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
+            const now = audioContext.currentTime;
             
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
+            // Создаем короткий щелчок с помощью шума и фильтра
+            const bufferSize = audioContext.sampleRate * 0.02; // 20ms
+            const buffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
+            const output = buffer.getChannelData(0);
             
-            oscillator.frequency.value = 600;
-            oscillator.type = 'square';
+            // Генерируем белый шум
+            for (let i = 0; i < bufferSize; i++) {
+                output[i] = Math.random() * 2 - 1;
+            }
             
-            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.05);
+            const noise = audioContext.createBufferSource();
+            noise.buffer = buffer;
             
-            oscillator.start(audioContext.currentTime);
-            oscillator.stop(audioContext.currentTime + 0.05);
+            const filter = audioContext.createBiquadFilter();
+            const gain = audioContext.createGain();
+            
+            noise.connect(filter);
+            filter.connect(gain);
+            gain.connect(audioContext.destination);
+            
+            // Фильтр для имитации деревянного звука
+            filter.type = 'bandpass';
+            filter.frequency.value = 1000; // Частота дерева
+            filter.Q.value = 10;
+            
+            // Очень короткий резкий звук
+            gain.gain.setValueAtTime(0.15, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.01);
+            
+            noise.start(now);
+            noise.stop(now + 0.02);
+            
+            // Добавляем тональную составляющую
+            const tone = audioContext.createOscillator();
+            const toneGain = audioContext.createGain();
+            
+            tone.frequency.value = 800;
+            tone.type = 'triangle';
+            
+            tone.connect(toneGain);
+            toneGain.connect(audioContext.destination);
+            
+            toneGain.gain.setValueAtTime(0.05, now);
+            toneGain.gain.exponentialRampToValueAtTime(0.001, now + 0.015);
+            
+            tone.start(now);
+            tone.stop(now + 0.02);
         }
 
         const FLAGS = {
